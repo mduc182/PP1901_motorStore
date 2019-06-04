@@ -18,7 +18,6 @@ class CategoriesTableSeeder extends Seeder
                 [
                     'catename'=>Str::random(10),
                     'parent_id'=>rand(0,3),
-
                     'created_at'=>date('Y-m-d H-i-s'),
                     'updated_at'=>date('Y-m-d H-i-s'),
 

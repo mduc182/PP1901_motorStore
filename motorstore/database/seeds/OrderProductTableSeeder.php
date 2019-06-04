@@ -16,15 +16,12 @@ class OrderProductTableSeeder extends Seeder
             {
                 for($i=0;$i<=5;$i++)
                 {
-                    DB::table('_order_product')->insert(
+                    DB::table('order_products')->insert(
                         [
-                           'order_id'=>rand(1,10),
-                           'product_id'=>rand(1,10),
-
-
-
-                            'created_at'=>date('Y-m-d H-i-s'),
-                            'updated_at'=>date('Y-m-d H-i-s'),
+                           'order_id' => rand(1,10),
+                           'product_id' => rand(1,10),
+                            'created_at' => date('Y-m-d H-i-s'),
+                            'updated_at' => date('Y-m-d H-i-s'),
 
                         ]
                     );

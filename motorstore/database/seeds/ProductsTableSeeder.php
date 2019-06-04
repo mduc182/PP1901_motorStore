@@ -16,16 +16,16 @@ class ProductsTableSeeder extends Seeder
         {
             DB::table('products')->insert(
                 [
-                    'pdname'=>Str::random(10),
-                    'plate'=>Str::random(10),
-                    'color'=>Str::random(10),
-                    'type'=>Str::random(10),
-                    'detail'=>Str::random(20),
-                    'year'=>rand(1,10),
-                    'price'=>rand(10,100),
-                    'category_id'=>rand(1,30),
-                    'created_at'=>date('Y-m-d H-i-s'),
-                    'updated_at'=>date('Y-m-d H-i-s'),
+                    'pdname' => Str::random(10),
+                    'plate' => Str::random(10),
+                    'color' => Str::random(10),
+                    'type' => Str::random(10),
+                    'detail' => Str::random(20),
+                    'year' => rand(1,10),
+                    'price' => rand(10,100),
+                    'category_id' => rand(1,30),
+                    'created_at' => date('Y-m-d H-i-s'),
+                    'updated_at' => date('Y-m-d H-i-s'),
 
                 ]
             );

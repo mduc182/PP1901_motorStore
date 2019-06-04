@@ -17,11 +17,11 @@ class UsersTableSeeder extends Seeder
         {
             DB::table('users')->insert(
             [
-               'name'=>Str::random(10),
-               'email'=>Str::random(10),
-               'password'=>Str::random(10),
-                'created_at'=>date('Y-m-d H-i-s'),
-                'updated_at'=>date('Y-m-d H-i-s'),
+               'name' => Str::random(10),
+               'email' => Str::random(10),
+               'password' => Str::random(10),
+                'created_at' => date('Y-m-d H-i-s'),
+                'updated_at' => date('Y-m-d H-i-s'),
 
             ]
             );
