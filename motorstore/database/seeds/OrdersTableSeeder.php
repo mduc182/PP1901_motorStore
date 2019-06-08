@@ -20,8 +20,7 @@ class OrdersTableSeeder extends Seeder
                         'address'=>Str::random(10),
                         'salecode'=>Str::random(10),
                         'phone'=>Str::random(10),
-
-
+                        'user_id'=>rand(1,10),
                         'created_at'=>date('Y-m-d H-i-s'),
                         'updated_at'=>date('Y-m-d H-i-s'),
 
