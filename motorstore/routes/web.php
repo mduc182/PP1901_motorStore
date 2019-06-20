@@ -18,4 +18,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('admin/routes', 'HomeController@admin')->middleware('checkadmin');
+Route::get('admin', 'HomeController@admin')->middleware('checkadmin');
+
+Route::get('admin/user', 'AdminController@userpage')->name('userpage');
+Route::get('admin/cate', 'AdminController@catepage')->name('catepage');
+Route::get('admin/product', 'AdminController@productpage')->name('productpage');
+Route::get('admin/branch', 'AdminController@branchpage')->name('branchpage');
+Route::get('admin/order', 'AdminController@orderpage')->name('orderpage');
+Route::get('admin/contact', 'AdminController@contactpage')->name('contactpage');
