@@ -1,10 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <title>__('ADMIN PAGE')</title>
-</head>
-<body>
+@extends('admin.admin_display');
+@section('content');
 
-</body>
-</html>
+@endsection()
