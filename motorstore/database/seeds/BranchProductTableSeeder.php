@@ -14,7 +14,7 @@ class BranchProductTableSeeder extends Seeder
     {
         for ($i = 0; $i <= 5; $i++)
         {
-            DB::table('branch_products')->insert(
+            DB::table('branch_product')->insert(
                 [
                     'branch_id' => rand(1, 10),
                     'product_id' => rand(1, 10),

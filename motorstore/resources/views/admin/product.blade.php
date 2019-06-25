@@ -1,6 +1,6 @@
 @extends('admin.admin_display');
 @section('content')
-    <a class="btn btn-success">{{ __('ADD New ProDuct') }}</a>
+    <a class="btn btn-success" href="{!! Route('add_product') !!}">{{ __('ADD New ProDuct') }}</a>
     <div class="col-lg-9">
         <table class="table table-striped">
 
@@ -14,6 +14,8 @@
                 <th scope="col">{{ __('Giá Bán') }}</th>
                 <th scope="col">{{ __('Chi Tiết') }}</th>
                 <th scope="col">{{ __('Loại Xe') }}</th>
+                <th scope="col">{{ __('Cửa Hàng Bán') }}</th>
+                <th scope="col">{{ __('Action') }}</th>
 
             </tr>
             </thead>
@@ -28,8 +30,9 @@
                     <td>{!! $product['price'] !!}</td>
                     <td>{!! $product['detail'] !!}</td>
                     <td>{!! $product['category']['catename'] !!}</td>
-                    <td><a class="btn btn-info">{{ __('Edit') }}</a></td>
-                    <td><a class="btn btn-danger">{{ __('Delete') }}</a></td>
+                    <td>{!! $product['branch']['address'] !!}</td>
+                    <td><a class="btn btn-info" href="{!! Route('edit_product', $product['id']) !!}">{{ __('Edit') }}</a>
+                    <a class="btn btn-danger">{{ __('Delete') }}</a></td>
 
 
                 </tr>
