@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Requests\BranchFromRequest;
 use App\Http\Requests\ProductFromRequest;
 use App\Http\Requests\CategoryFromRequest;
 use App\Http\Requests\UserFromRequest;
@@ -224,6 +226,58 @@ class AdminController extends Controller
         }
 
         return view('admin.product_edit',  compact('products', 'categories', 'branches'))->with(trans('mess'), $mess);
+    }
+
+    public function create_branch()
+    {
+        $branches = Branch::all();
+
+        return view('admin.branch_add',compact('branches'));
+    }
+
+    public function store_branch(BranchFromRequest $request)
+    {
+        $branches = new Branch();
+        $branches->address = $request->get('address');
+        $branches->phone = $request->get('phone');
+
+        if ($branches->save())
+        {
+            $mess = " Add Success ";
+        }
+        $branches = Branch::all();
+
+        return view('admin/branch', compact('branches'))->with(trans('mess'), $mess );
+    }
+
+    public function edit_branch($id)
+    {
+        $branches = Branch::findOrFail($id);
+
+        return view('admin.branch_edit', compact('branches'));
+    }
+
+    public function update_branch(BranchFromRequest $request, $id)
+    {
+        $branches = Branch::findOrFail($id);
+        $branches->address = $request->get('address');
+        $branches->phone = $request->get('phone');
+
+        if ($branches->save())
+        {
+            $mess = "Update Success";
+        }
+        $branches = Branch::all();
+
+        return view('admin/branch', compact('branches'))->with(trans('mess'), $mess);
+    }
+
+    public function delete_branch(Request $request)
+    {
+        $branches = Branch::findOrfail($request->get('id'));
+        $branches->delete();
+
+        return redirect('admin/branch')->with(trans('mess_del'), "Delete Success");
     }
 }
 

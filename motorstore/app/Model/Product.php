@@ -15,8 +15,8 @@ class
         return $this->belongsTo('App\Model\Branch');
     }
 
-    public function orders()
+    public function order()
     {
-        return $this->belongsToMany('App\Model\Order');
+        return $this->belongsTo('App\Model\Order');
     }
 }

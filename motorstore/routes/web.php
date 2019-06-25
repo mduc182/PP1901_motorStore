@@ -41,3 +41,9 @@ Route::get('admin/addproduct', 'AdminController@create_product')->name('add_prod
 Route::post('admin/addproduct', 'AdminController@store_product')->name('store_product');
 Route::get('admin/editproduct/{id}', 'AdminController@edit_product')->name('edit_product');
 Route::post('admin/editproduct/{id}', 'AdminController@update_product')->name('update_product');
+Route::get('admin/addbranch', 'AdminController@create_branch')->name('add_branch');
+Route::post('admin/addbranch', 'AdminController@store_branch')->name('store_branch');
+Route::get('admin/editbranch/{id}', 'AdminController@edit_branch')->name('edit_branch');
+Route::post('admin/editbranch/{id}', 'AdminController@update_branch')->name('update_branch');
+Route::post('admin/deletebranch', 'AdminController@delete_branch')->name('delete_branch');
+

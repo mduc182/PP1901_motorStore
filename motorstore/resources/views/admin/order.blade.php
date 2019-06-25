@@ -21,8 +21,7 @@
                     <td>{!! $order['user']['user_phone'] !!}</td>
                     <td>{!! $order['user']['user_address'] !!}</td>
                     <td>{!! $order['salecode'] !!}</td>
-                    <td><a class="btn btn-info">{{ __('Edit') }}</a></td>
-                    <td><a class="btn btn-danger">{{ __('Delete') }}</a></td>
+
 
 
                 </tr>
