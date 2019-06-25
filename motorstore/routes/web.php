@@ -26,3 +26,9 @@ Route::get('admin/product', 'AdminController@productpage')->name('productpage');
 Route::get('admin/branch', 'AdminController@branchpage')->name('branchpage');
 Route::get('admin/order', 'AdminController@orderpage')->name('orderpage');
 Route::get('admin/contact', 'AdminController@contactpage')->name('contactpage');
+
+Route::get('admin/edituser/{id}', 'AdminController@edit_user')->name('edit_user');
+Route::post('admin/edituser/{id}', 'AdminController@update_user')->name('update_user');
+
+Route::post('admin/deleteuser', 'AdminController@delete_user')->name('delete_user');
+
