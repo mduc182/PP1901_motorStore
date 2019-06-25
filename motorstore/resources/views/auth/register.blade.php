@@ -60,6 +60,33 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+                        <div class="form-group{{ $errors->has('user_address') ? ' has-error' : '' }}">
+                            <label for="user_address" class="col-md-4 control-label">{{ __('Địa Chỉ') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="user_address" type="text" class="form-control" name="user_address" value="{{ old('user_address') }}" required>
+
+                                @if ($errors->has('user_address'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('user_address') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group{{ $errors->has('user_phone') ? ' has-error' : '' }}">
+                            <label for="user_phone" class="col-md-4 control-label">{{ __('Số Điện Thoại') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="user_phone" type="text" class="form-control" name="user_phone" value="{{ old('user_address') }}" required>
+
+                                @if ($errors->has('user_phone'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('user_phone') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

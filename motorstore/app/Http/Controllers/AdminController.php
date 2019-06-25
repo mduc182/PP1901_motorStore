@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserFromRequest;
 use App\Model\Branch;
 use App\Model\Category;
 use App\Model\Contact;
@@ -9,6 +10,7 @@ use App\Model\Order;
 use App\Model\Product;
 use App\Model\User;
 use Illuminate\Http\Request;
+use function Sodium\compare;
 
 class AdminController extends Controller
 {
@@ -47,7 +49,7 @@ class AdminController extends Controller
     {
         $orders = Order::with([
             'user' => function ($query) {
-                $query->select('id', 'name');
+                $query->select('id', 'name', 'user_phone', 'user_address');
             }])->get()->toArray();
 
         return view('admin.order', compact('orders'));
@@ -57,9 +59,41 @@ class AdminController extends Controller
     {
         $contacts = Contact::with([
             'user' => function ($query) {
-                $query->select('id', 'name');
+                $query->select('id', 'name', 'user_phone', 'user_address');
             }])->get()->toArray();
 
         return view('admin.contact', compact('contacts'));
+    }
+
+    public function edit_user($id)
+    {
+        $users = User::findOrfail($id);
+
+        return view('admin.edit_user', compact('users'));
+    }
+
+    public function update_user(UserFromRequest $request, $id)
+    {
+        $users = User::findOrfail($id);
+        $users->name = $request->get('name');
+        $users->email = $request->get('email');
+        $users->user_address = $request->get('user_address');
+        $users->user_phone = $request->get('user_phone');
+        $users->isAdmin = $request->get('isAdmin');
+
+        if ($users->save())
+        {
+            $mess = "Update Success" ;
+        }
+
+        return view('admin.edit_user', compact('users'))->with(trans('mess'), $mess);
+    }
+
+    public function delete_user(Request $request)
+    {
+        $users = User::findOrfail($request->get('id'));
+        $users->delete();
+
+        return redirect('admin/user')->with(trans('mess_del'), "Delete Success");
     }
 }

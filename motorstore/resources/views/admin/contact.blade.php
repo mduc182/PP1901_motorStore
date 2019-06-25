@@ -7,6 +7,8 @@
             <tr>
                 <th scope="col">{{ __('STT') }}</th>
                 <th scope="col">{{ __('Tên Khách Hàng') }}</th>
+                <th scope="col">{{ __('SĐT Khách Hàng') }}</th>
+                <th scope="col">{{ __('Địa Chỉ') }}</th>
                 <th scope="col">{{ __('Ghi Chú') }}</th>
             </tr>
             </thead>
@@ -15,6 +17,8 @@
                 <tr>
                     <th scope="row">{!! $contact['id'] !!}</th>
                     <td>{!! $contact['user']['name'] !!}</td>
+                    <td>{!! $contact['user']['user_phone'] !!}</td>
+                    <td>{!! $contact['user']['user_address'] !!}</td>
                     <td>{!! $contact['notes'] !!}</td>
                     <td><a class="btn btn-info">{{ __('Edit') }}</a></td>
                     <td><a class="btn btn-danger">{{ __('Delete') }}</a></td>
