@@ -20,8 +20,6 @@
                     <td>{!! $contact['user']['user_phone'] !!}</td>
                     <td>{!! $contact['user']['user_address'] !!}</td>
                     <td>{!! $contact['notes'] !!}</td>
-                    <td><a class="btn btn-info">{{ __('Edit') }}</a></td>
-                    <td><a class="btn btn-danger">{{ __('Delete') }}</a></td>
 
 
                 </tr>
