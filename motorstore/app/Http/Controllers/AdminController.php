@@ -73,6 +73,7 @@ class AdminController extends Controller
     }
 
     public function update_user(UserFromRequest $request, $id)
+
     {
         $users = User::findOrfail($id);
         $users->name = $request->get('name');
