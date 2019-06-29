@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $categories = Category::where('parent_id',0)->with('childs')->get();
         $products = Product::all();
         return view('index', compact('categories', 'products'));
     }

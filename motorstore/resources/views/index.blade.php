@@ -12,127 +12,29 @@
                     </button>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        @foreach($categories as $cate)
+                            @if($cate->childs->count()>0)
 
                         <ul class="navbar-nav">
                             <li class="nav-item dropdown submenu active">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    HonDa<i class="fa fa-angle-down" aria-hidden="true"></i>
+                                   {{ $cate->catename }}<i class="fa fa-angle-down" aria-hidden="true"></i>
                                 </a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="">HonDa</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">Suzuki</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">Yamaha</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">Piagio</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">Kawasaki</a></li>
 
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown submenu">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Suzuki <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                </a>
                                 <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    
+                                    @foreach($cate->childs as $child)
+                                    <li class="nav-item"><a class="nav-link" href="">{{ $child->catename }}</a></li>
+                                    @endforeach
                                 </ul>
-                            </li>
-                            <li class="nav-item dropdown submenu">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Yamaha<i class="fa fa-angle-down" aria-hidden="true"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown submenu">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Piagio<i class="fa fa-angle-down" aria-hidden="true"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown submenu">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Kawasaki <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown submenu">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Rebel <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
 
-                                </ul>
-                            </li>
-                            <li class="nav-item dropdown submenu">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Xe Số <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
 
-                                </ul>
                             </li>
-                            <li class="nav-item dropdown submenu">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Xe Ga <i class="fa fa-angle-down" aria-hidden="true"></i>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
-                                    <li class="nav-item"><a class="nav-link" href="">1</a></li>
 
-                                </ul>
-                            </li>
+
+
                         </ul>
+                            @endif
+                        @endforeach
                     </div>
                 </nav>
             </div>
