@@ -14,7 +14,7 @@ class OrderProductTableSeeder extends Seeder
     {
         for ($i = 0; $i <= 5; $i++)
         {
-            DB::table('order_products')->insert(
+            DB::table('order_product')->insert(
                 [
                     'order_id' => rand(1, 10),
                     'product_id' => rand(1, 10),
