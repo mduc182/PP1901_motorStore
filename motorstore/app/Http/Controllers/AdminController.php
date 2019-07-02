@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\ProductFromRequest;
 use App\Http\Requests\CategoryFromRequest;
+use App\Http\Requests\BranchFromRequest;
 use App\Http\Requests\UserFromRequest;
 use App\Model\Branch;
 use App\Model\Category;
@@ -94,9 +95,8 @@ class AdminController extends Controller
         $users->user_phone = $request->get('user_phone');
         $users->isAdmin = $request->get('isAdmin');
 
-        if ($users->save())
-        {
-            $mess = "Update Success" ;
+        if ($users->save()) {
+            $mess = "Update Success";
         }
 
         return view('admin.edit_user', compact('users'))->with(trans('mess'), $mess);
@@ -125,8 +125,7 @@ class AdminController extends Controller
         $categories->catename = $request->get('catename');
         $categories->parent_id = $request->get('parent_id');
         $mess = "";
-        if ($categories->save())
-        {
+        if ($categories->save()) {
             $mess = "Add Success";
         }
         $categories = Category::all();
@@ -147,8 +146,7 @@ class AdminController extends Controller
         $categories->catename = $request->get('catename');
         $categories->parent_id = $request->get('parent_id');
 
-        if ($categories->save())
-        {
+        if ($categories->save()) {
             $mess = "Update Success";
         }
 
@@ -185,13 +183,12 @@ class AdminController extends Controller
         $products->price = $request->get('price');
         $products->detail = $request->get('detail');
         $products->category_id = $request->get('category_id');
-        if ($products->save())
-        {
+        if ($products->save()) {
             $mess = "Add Success";
         }
 
 
-        return view('admin.product_add',compact('products', 'categories', 'branches'))->with(trans('mess'), $mess);
+        return view('admin.product_add', compact('products', 'categories', 'branches'))->with(trans('mess'), $mess);
     }
 
     public function edit_product($id)
@@ -217,12 +214,61 @@ class AdminController extends Controller
         $products->category_id = $request->get('category_id');
         $products->branch_id = $request->get('branch_id');
 
-        if ($products->save())
-        {
+        if ($products->save()) {
             $mess = "Update Success";
         }
 
-        return view('admin.product_edit',  compact('products', 'categories', 'branches'))->with(trans('mess'), $mess);
+        return view('admin.product_edit', compact('products', 'categories', 'branches'))->with(trans('mess'), $mess);
     }
-}
+
+        public function create_branch()
+        {
+            $branches = Branch::all();
+
+            return view('admin.branch_add', compact('branches'));
+        }
+
+        public function store_branch(BranchFromRequest $request)
+        {
+            $branches = new Branch();
+            $branches->address = $request->get('address');
+            $branches->phone = $request->get('phone');
+
+            if ($branches->save()) {
+                $mess = " Add Success ";
+            }
+            $branches = Branch::all();
+
+            return view('admin/branch', compact('branches'))->with(trans('mess'), $mess);
+        }
+
+        public function edit_branch($id)
+        {
+            $branches = Branch::findOrFail($id);
+
+            return view('admin.branch_edit', compact('branches'));
+        }
+
+        public function update_branch(BranchFromRequest $request, $id)
+        {
+            $branches = Branch::findOrFail($id);
+            $branches->address = $request->get('address');
+            $branches->phone = $request->get('phone');
+
+            if ($branches->save()) {
+                $mess = "Update Success";
+            }
+            $branches = Branch::all();
+
+            return view('admin/branch', compact('branches'))->with(trans('mess'), $mess);
+        }
+
+        public function delete_branch(Request $request)
+        {
+            $branches = Branch::findOrfail($request->get('id'));
+            $branches->delete();
+
+            return redirect('admin/branch')->with(trans('mess_del'), "Delete Success");
+        }
+    }
 
