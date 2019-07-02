@@ -45,3 +45,4 @@ Route::post('admin/addbranch', 'AdminController@store_branch')->name('store_bran
 Route::get('admin/editbranch/{id}', 'AdminController@edit_branch')->name('edit_branch');
 Route::post('admin/editbranch/{id}', 'AdminController@update_branch')->name('update_branch');
 Route::post('admin/deletebranch', 'AdminController@delete_branch')->name('delete_branch');
+Route::get('cate/catepage{id}','CategoryController@cate_page')->name('cate_page');
