@@ -31,7 +31,6 @@ Route::get('admin/edituser/{id}', 'AdminController@edit_user')->name('edit_user'
 Route::post('admin/edituser/{id}', 'AdminController@update_user')->name('update_user');
 
 Route::post('admin/deleteuser', 'AdminController@delete_user')->name('delete_user');
-
 Route::get('admin/addcate', 'AdminController@create_category')->name('add_cate');
 Route::post('admin/cate', 'AdminController@store_category')->name('store_cate');
 Route::get('admin/editcate/{id}', 'AdminController@edit_cate')->name('edit_cate');
