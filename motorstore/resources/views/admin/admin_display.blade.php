@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{__('Xe Máy Vinh Khoa')}}</title>
+    <title>{{ trans('messages.name_store')}}</title>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -16,6 +16,8 @@
 <body>
 <div id="app">
     <nav class="navbar navbar-default navbar-static-top">
+        <a href="{!! Route('change_lang', ['en']) !!}">English</a>
+        <a href="{!! Route('change_lang', ['vi']) !!}">VietNam</a>
         <div class="container">
             <div class="navbar-header">
 
@@ -29,7 +31,7 @@
 
                 <!-- Branding Image -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{__('Xe Máy Vinh Khoa')}}
+                    {{ trans('messages.name_store')}}
                 </a>
             </div>
 
@@ -43,8 +45,8 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @guest
-                        <li><a href="{{ route('login') }}">Login</a></li>
-                        <li><a href="{{ route('register') }}">Register</a></li>
+                        <li><a href="{{ route('login') }}">{{ trans('messages.login')}}</a></li>
+                        <li><a href="{{ route('register') }}">{{ trans('messages.register')}}</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
@@ -56,7 +58,7 @@
                                     <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Logout
+                                        {{ trans('messages.logout')}}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -73,15 +75,15 @@
 
     <div class="row">
         <div class="col-lg-3">
-            <h3 class="my-4">{{__('Quản Lý Trang Web')}}</h3>
+            <h3 class="my-4">{{ trans('messages.managepages')}}</h3>
             <div class="list-group">
-                <a href="{{ route('userpage')}}" class="list-group-item">{{__('Quản Lý Người Dùng')}}</a>
-                <a href="{{ route('catepage')}}" class="list-group-item">{{__('Quản Lý Các Dòng Xe')}}</a>
-                <a href="{{ route('productpage')}}" class="list-group-item">{{__('Quản Lý Các Loại Xe')}}</a>
-                <a href="" class="list-group-item">{{__('Quản Lý Bài Viết')}}</a>
-                <a href="{{ route('branchpage')}}" class="list-group-item">{{__('Quản Lý Cửa Hàng')}}</a>
-                <a href="{{ route('orderpage')}}" class="list-group-item">{{__('Quản Lý Đơn Đặt Hàng')}}</a>
-                <a href="{{ route('contactpage')}}" class="list-group-item">{{__('Quản Lý Liên Lạc Khách Hàng')}}</a>
+                <a href="{{ route('userpage')}}" class="list-group-item">{{ trans('messages.manageuser')}}</a>
+                <a href="{{ route('catepage')}}" class="list-group-item">{{ trans('messages.managecate')}}</a>
+                <a href="{{ route('productpage')}}" class="list-group-item">{{ trans('messages.manageproduct')}}</a>
+                <a href="" class="list-group-item">{{ trans('messages.managepost')}}</a>
+                <a href="{{ route('branchpage')}}" class="list-group-item">{{ trans('messages.managebranch')}}</a>
+                <a href="{{ route('orderpage')}}" class="list-group-item">{{ trans('messages.manageorder')}}</a>
+                <a href="{{ route('contactpage')}}" class="list-group-item">{{ trans('messages.managecontact')}}</a>
 
             </div>
         </div>

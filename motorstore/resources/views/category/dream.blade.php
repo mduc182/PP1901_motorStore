@@ -8,13 +8,13 @@
                                  alt=""></a>
                 <div class="card-body">
                     <h4 class="card-title">
-                        <a href="#">{{__('Tên xe :')}}{!! $product -> pdname !!}</a>
+                        <a href="#">{{ trans('messages.pdname')}}{!! $product -> pdname !!}</a>
                     </h4>
-                    <h5>{{__('Biển Số :')}}{!! $product -> plate !!}</h5>
-                    <h5>{{__('Màu Sắc :')}}{!! $product -> color !!}</h5>
-                    <h5>{{__('Giá Bán :')}}{!! $product -> price !!}</h5>
-                    <h5>{{__('Năm sản xuất :')}}{!! $product -> year !!}</h5>
-                    <h5>{{__('Mô tả :')}}{!! $product -> detail !!}</h5>
+                    <h5>{{ trans('messages.plate')}}{!! $product -> plate !!}</h5>
+                    <h5>{{ trans('messages.color')}}{!! $product -> color !!}</h5>
+                    <h5>{{ trans('messages.price')}}{!! $product -> price !!}</h5>
+                    <h5>{{ trans('messages.year')}}{!! $product -> year !!}</h5>
+                    <h5>{{ trans('messages.detail')}}{!! $product -> detail !!}</h5>
 
                 </div>
             </div>

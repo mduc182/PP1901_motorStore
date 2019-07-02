@@ -12,12 +12,20 @@ use App\Model\Order;
 use App\Model\Product;
 use App\Model\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use function Sodium\compare;
 
 class AdminController extends Controller
 {
     public $categories;
     public $branches;
+
+    public function change_lang($language)
+    {
+        Session::put('website_language', $language);
+
+        return redirect()->back();
+    }
 
     public function __construct()
     {
@@ -96,7 +104,7 @@ class AdminController extends Controller
         $users->isAdmin = $request->get('isAdmin');
 
         if ($users->save()) {
-            $mess = "Update Success";
+            $mess = trans('messages.updatesuccess');
         }
 
         return view('admin.edit_user', compact('users'))->with(trans('mess'), $mess);
@@ -107,7 +115,7 @@ class AdminController extends Controller
         $users = User::findOrfail($request->get('id'));
         $users->delete();
 
-        return redirect('admin/user')->with(trans('mess_del'), "Delete Success");
+        return redirect('admin/user')->with(trans('mess_del'), trans('messages.delsuccess'));
     }
 
     public function create_category()
@@ -126,7 +134,7 @@ class AdminController extends Controller
         $categories->parent_id = $request->get('parent_id');
         $mess = "";
         if ($categories->save()) {
-            $mess = "Add Success";
+            $mess = trans('messages.addsuccess');
         }
         $categories = Category::all();
 
@@ -147,7 +155,7 @@ class AdminController extends Controller
         $categories->parent_id = $request->get('parent_id');
 
         if ($categories->save()) {
-            $mess = "Update Success";
+            $mess = trans('messages.updatesuccess');
         }
 
         return view('admin.cate_edit', compact('categories'))->with(trans('mess'), $mess);
@@ -158,7 +166,7 @@ class AdminController extends Controller
         $categories = Category::findOrfail($request->get('id'));
         $categories->delete();
 
-        return redirect('admin/cate')->with(trans('mess_del'), "Delete Success");
+        return redirect('admin/cate')->with(trans('mess_del'), trans('messages.delsuccess'));
     }
 
     public function create_product()
@@ -184,7 +192,7 @@ class AdminController extends Controller
         $products->detail = $request->get('detail');
         $products->category_id = $request->get('category_id');
         if ($products->save()) {
-            $mess = "Add Success";
+            $mess = trans('messages.addsuccess');
         }
 
 
@@ -215,7 +223,7 @@ class AdminController extends Controller
         $products->branch_id = $request->get('branch_id');
 
         if ($products->save()) {
-            $mess = "Update Success";
+            $mess = trans('messages.updatesuccess');
         }
 
         return view('admin.product_edit', compact('products', 'categories', 'branches'))->with(trans('mess'), $mess);
@@ -235,7 +243,7 @@ class AdminController extends Controller
             $branches->phone = $request->get('phone');
 
             if ($branches->save()) {
-                $mess = " Add Success ";
+                $mess = trans('messages.addsuccess');
             }
             $branches = Branch::all();
 
@@ -256,7 +264,7 @@ class AdminController extends Controller
             $branches->phone = $request->get('phone');
 
             if ($branches->save()) {
-                $mess = "Update Success";
+                $mess = trans('messages.updatesuccess');
             }
             $branches = Branch::all();
 
@@ -268,7 +276,7 @@ class AdminController extends Controller
             $branches = Branch::findOrfail($request->get('id'));
             $branches->delete();
 
-            return redirect('admin/branch')->with(trans('mess_del'), "Delete Success");
+            return redirect('admin/branch')->with(trans('mess_del'), trans('messages.delsuccess'));
         }
     }
 

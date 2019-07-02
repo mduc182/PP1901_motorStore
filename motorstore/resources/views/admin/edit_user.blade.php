@@ -1,7 +1,7 @@
 @extends('admin.admin_display');
 @section('content')
     <div class="container">
-        <h3><p>{{ __('Edit User') }}</p></h3>
+        <h3><p>{{ trans('messages.edituser') }}</p></h3>
         @if(isset($mess))
             <p class="alert alert-success">{!! $mess !!}</p>
         @endif
@@ -13,20 +13,20 @@
         <form action="{!! Route('update_user', $users->id) !!}" method="post">
             {{ csrf_field() }}
             <div class="col-md-6">
-                <label>User Name</label>
+                <label>{{ trans('messages.username') }}</label>
                 <input type="text" name="name" value="{!! $users->name !!}" class="form-control">
-                <label>Email</label>
+                <label>{{ trans('messages.email') }}</label>
                 <input type="text" name="email" value="{!! $users->email !!}" class="form-control">
-                <label>Address</label>
+                <label>{{ trans('messages.address') }}</label>
                 <input type="text" name="user_address" value="{!! $users->user_address !!}" class="form-control">
-                <label>Phone</label>
+                <label>{{ trans('messages.phone') }}</label>
                 <input type="text" name="user_phone" value="{!! $users->user_phone !!}" class="form-control">
-                <label>Role</label>
+                <label>{{ trans('messages.role') }}</label>
                 <input type="text" name="isAdmin" value="{!! $users->user_isAdmin !!}" class="form-control">
                 <br>
                 <br>
                 <br>
-                <input class="btn btn-success" value="{{ __('Edit') }}" type="submit" name="btn-edit">
+                <input class="btn btn-success" value="{{ trans('messages.edit') }}" type="submit" name="btn-edit">
             </div>
         </form>
 
