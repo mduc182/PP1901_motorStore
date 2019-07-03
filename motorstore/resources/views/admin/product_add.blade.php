@@ -25,6 +25,11 @@
                 <input type="text" name="year" class="form-control">
                 <label>{{ trans('messages.price')}}</label>
                 <input type="text" name="price" class="form-control">
+                <label for="image">{{ trans('messages.image')}}</label>
+                <input type="hidden" value="{{ csrf_token() }}" name="_token">
+                <input type="file" name="image" class="py-5">
+
+
                 <label>{{ trans('messages.detail')}}</label>
                 <input type="text" name="detail" class="form-control">
                 <label>{{ trans('messages.catename')}}</label>

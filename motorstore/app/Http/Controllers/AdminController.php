@@ -191,6 +191,7 @@ class AdminController extends Controller
         $products->price = $request->get('price');
         $products->detail = $request->get('detail');
         $products->category_id = $request->get('category_id');
+        $products->image = $request->get('image');
         if ($products->save()) {
             $mess = trans('messages.addsuccess');
         }
@@ -286,5 +287,7 @@ class AdminController extends Controller
 
             return view('admin.branch_info', compact('branches', 'products'));
         }
+
+
     }
 

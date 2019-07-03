@@ -30,6 +30,7 @@ class ProductFromRequest extends FormRequest
             'detail' => 'required',
             'year' => 'required',
             'price' => 'required',
+            'image' => 'required|file|image|max:5000',
         ];
     }
 }
