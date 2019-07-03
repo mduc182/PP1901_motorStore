@@ -8,13 +8,13 @@
 
             <thead>
             <tr>
-                <th scope="col">{{ __('STT') }}</th>
-                <th scope="col">{{ __('Tên Người Dùng') }}</th>
-                <th scope="col">{{ __('Địa Chỉ') }}</th>
-                <th scope="col">{{ __('SĐT') }}</th>
-                <th scope="col">{{ __('Email') }}</th>
-                <th scope="col">{{ __('Role') }}</th>
-                <th scope="col">{{ __('Action') }}</th>
+                <th scope="col">{{ trans('messages.id')}}</th>
+                <th scope="col">{{ trans('messages.username')}}</th>
+                <th scope="col">{{ trans('messages.address')}}</th>
+                <th scope="col">{{ trans('messages.phone')}}</th>
+                <th scope="col">{{ trans('messages.email')}}</th>
+                <th scope="col">{{ trans('messages.role')}}</th>
+                <th scope="col">{{ trans('messages.action')}}</th>
             </tr>
             </thead>
             @foreach($users as $user)
@@ -26,11 +26,11 @@
                 <td>{!! $user->user_phone !!}</td>
                 <td>{!! $user->email !!}</td>
                 <td>{!! $user->isAdmin !!}</td>
-                <td><a class="btn btn-info" href="{!! Route('edit_user',$user->id) !!}">{{ __('Edit') }}</a>
+                <td><a class="btn btn-info" href="{!! Route('edit_user',$user->id) !!}">{{ trans('messages.edit') }}</a>
                 <form action="{!! Route('delete_user') !!}" method="post">
                 <input type="hidden" value="{!! $user->id !!}" name="id">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                <input type="submit" value="{{ __('Delete') }}" class="btn btn-danger">
+                <input type="submit" value="{{ trans('messages.delete') }}" class="btn btn-danger">
                 </form>
                 </td>
 

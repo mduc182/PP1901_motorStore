@@ -1,7 +1,7 @@
 @extends('admin.admin_display');
 @section('content')
     <div class="container">
-        <h3><p>{{ __('Thêm Xe') }}</p></h3>
+        <h3><p>{{ trans('messages.addproduct')}}</p></h3>
         @if(isset($mess))
             <p class="alert alert-success">{!! $mess !!}</p>
         @endif
@@ -13,21 +13,21 @@
         <form action="{!! Route('store_product') !!}" method="post">
             {{ csrf_field() }}
             <div class="col-md-6">
-                <label>{{ __('Tên Xe') }}</label>
+                <label>{{ trans('messages.pdname')}}</label>
                 <input type="text" name="pdname" class="form-control">
-                <label>{{ __('Biển Số') }}</label>
+                <label>{{ trans('messages.plate')}}</label>
                 <input type="text" name="plate" class="form-control">
-                <label>{{ __('Màu Xe') }}</label>
+                <label>{{ trans('messages.color')}}</label>
                 <input type="text" name="color" class="form-control">
-                <label>{{ __('Số Hiệu') }}</label>
+                <label>{{ trans('messages.type')}}</label>
                 <input type="text" name="type" class="form-control">
-                <label>{{ __('Năm Sản Xuất') }}</label>
+                <label>{{ trans('messages.year')}}</label>
                 <input type="text" name="year" class="form-control">
-                <label>{{ __('Giá Bán') }}</label>
+                <label>{{ trans('messages.price')}}</label>
                 <input type="text" name="price" class="form-control">
-                <label>{{ __('Chi Tiết') }}</label>
+                <label>{{ trans('messages.detail')}}</label>
                 <input type="text" name="detail" class="form-control">
-                <label>{{ __('Loại Xe') }}</label>
+                <label>{{ trans('messages.catename')}}</label>
                 <br>
                 <select id="category_id" name="category_id"><
                     @foreach($categories as $cate)
@@ -35,7 +35,7 @@
                     @endforeach
                 </select>
                 <br>
-                <label>{{ __('Cửa Hàng Bán') }}</label>
+                <label>{{ trans('messages.address')}}</label>
                 <br>
                 <select id="address" name="address"><
                     @foreach($branches as $branch)
@@ -45,7 +45,7 @@
                 <br>
                 <br>
                 <br>
-                <input class="btn btn-success" value="{{ __('ADD') }}" type="submit" name="btn-edit">
+                <input class="btn btn-success" value="{{ trans('messages.add')}}" type="submit" name="btn-edit">
             </div>
         </form>
     </div>
