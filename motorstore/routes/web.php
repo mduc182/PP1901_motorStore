@@ -47,6 +47,7 @@ Route::group([
     Route::get('editbranch/{id}', 'AdminController@edit_branch')->name('edit_branch');
     Route::post('editbranch/{id}', 'AdminController@update_branch')->name('update_branch');
     Route::post('deletebranch', 'AdminController@delete_branch')->name('delete_branch');
+    Route::get('admin/branch{id}','AdminController@branch_info')->name('branch_info');
 
 });
 Route::get('admin', 'HomeController@admin')->middleware('checkadmin','locale');

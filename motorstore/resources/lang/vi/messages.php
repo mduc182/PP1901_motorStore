@@ -46,6 +46,8 @@ return [
     'delsuccess' => 'Xóa Thành Công',
     'details' => 'Chi Tiết Sản Phẩm',
     'order' => 'Thêm Vào Giỏ Hàng',
+    'info' => 'Thông Tin Cửa Hàng',
+    'info1' => 'Sản Phẩm Thuộc',
 
 
 ];

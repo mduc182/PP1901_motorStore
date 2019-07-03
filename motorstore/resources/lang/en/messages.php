@@ -46,6 +46,8 @@ return [
     'delsuccess' => 'Delete Success',
     'details' => 'Detail',
     'order' => 'Order',
+    'info' => 'Info',
+    'info1' => 'Product From',
 
 
 
