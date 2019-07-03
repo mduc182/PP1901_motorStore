@@ -5,11 +5,11 @@
 
             <thead>
             <tr>
-                <th scope="col">{{ __('STT') }}</th>
-                <th scope="col">{{ __('Tên Khách Hàng') }}</th>
-                <th scope="col">{{ __('SĐT Khách Hàng') }}</th>
-                <th scope="col">{{ __('Địa Chỉ') }}</th>
-                <th scope="col">{{ __('Ghi Chú') }}</th>
+                <th scope="col">{{ trans('messages.id')}}</th>
+                <th scope="col">{{ trans('messages.username')}}</th>
+                <th scope="col">{{ trans('messages.uphone')}}</th>
+                <th scope="col">{{ trans('messages.uaddress')}}</th>
+                <th scope="col">{{ trans('messages.uaddress')}}</th>
             </tr>
             </thead>
             @foreach($contacts as $contact)
@@ -20,8 +20,8 @@
                     <td>{!! $contact['user']['user_phone'] !!}</td>
                     <td>{!! $contact['user']['user_address'] !!}</td>
                     <td>{!! $contact['notes'] !!}</td>
-                    <td><a class="btn btn-info">{{ __('Edit') }}</a></td>
-                    <td><a class="btn btn-danger">{{ __('Delete') }}</a></td>
+                    <td><a class="btn btn-info">{{ trans('messages.edit')}}</a></td>
+                    <td><a class="btn btn-danger">{{ trans('messages.delete')}}</a></td>
 
 
                 </tr>

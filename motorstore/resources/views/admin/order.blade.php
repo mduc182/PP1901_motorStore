@@ -5,12 +5,12 @@
 
             <thead>
             <tr>
-                <th scope="col">{{ __('STT') }}</th>
-                <th scope="col">{{ __('Tên Khách Hàng') }}</th>
-                <th scope="col">{{ __('SDT Khách Hàng') }}</th>
-                <th scope="col">{{ __('Địa Chỉ') }}</th>
-                <th scope="col">{{ __('Mã Giảm Giá') }}</th>
-                <th scope="col">{{ __('Tên Sản Phẩm') }}</th>
+                <th scope="col">{{ trans('messages.id')}}</th>
+                <th scope="col">{{ trans('messages.username')}}</th>
+                <th scope="col">{{ trans('messages.uphone')}}</th>
+                <th scope="col">{{ trans('messages.uaddress')}}</th>
+                <th scope="col">{{ trans('messages.salecode')}}</th>
+                <th scope="col">{{ trans('messages.pdname')}}</th>
             </tr>
             </thead>
             @foreach($orders as $order)
@@ -21,8 +21,8 @@
                     <td>{!! $order['user']['user_phone'] !!}</td>
                     <td>{!! $order['user']['user_address'] !!}</td>
                     <td>{!! $order['salecode'] !!}</td>
-                    <td><a class="btn btn-info">{{ __('Edit') }}</a></td>
-                    <td><a class="btn btn-danger">{{ __('Delete') }}</a></td>
+                    <td><a class="btn btn-info">{{ trans('messages.edit')}}</a></td>
+                    <td><a class="btn btn-danger">{{ trans('messages.delete')}}</a></td>
 
 
                 </tr>

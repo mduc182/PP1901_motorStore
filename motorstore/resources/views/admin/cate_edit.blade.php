@@ -1,7 +1,7 @@
 @extends('admin.admin_display');
 @section('content')
     <div class="container">
-        <h3><p>{{ __('Edit Category') }}</p></h3>
+        <h3><p>{{ trans('messages.editcate') }}</p></h3>
         @if(isset($mess))
             <p class="alert alert-success">{!! $mess !!}</p>
         @endif
@@ -13,14 +13,14 @@
         <form action="{!! Route('update_cate', $categories->id) !!}" method="post">
             {{ csrf_field() }}
             <div class="col-md-6">
-                <label>{{ __('Tên Dòng Xe') }}</label>
+                <label>{{ trans('messages.catename') }}</label>
                 <input type="text" name="catename" value="{!! $categories->catename !!}" class="form-control">
-                <label>{{ __('Loại') }}</label>
+                <label>{{ trans('messages.type') }}</label>
                 <input type="text" name="parent_id" value="{!! $categories->parent_id !!}" class="form-control">
                 <br>
                 <br>
                 <br>
-                <input class="btn btn-success" value="{{ __('Edit') }}" type="submit" name="btn-edit">
+                <input class="btn btn-success" value="{{ trans('messages.edit') }}" type="submit" name="btn-edit">
             </div>
         </form>
 

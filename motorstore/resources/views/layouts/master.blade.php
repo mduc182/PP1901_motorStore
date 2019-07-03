@@ -7,7 +7,7 @@
 
     <link rel="icon" href="img/fav-icon.png" type="image/x-icon" />
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Xe Máy Vinh Khoa</title>
+    <title>{{__('messages.name_store')}}</title>
 
     <!-- Icon css link -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -40,10 +40,11 @@
 </head>
 <body>
 <div class="header_top_area">
+    <a href="{!! Route('change_lang', ['en']) !!}">English</a>
+    <a href="{!! Route('change_lang', ['vi']) !!}">VietNam</a>
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-
             </div>
             <div class="col-lg-6">
                 <div class="top_header_middle">
@@ -67,7 +68,7 @@
                                             <a href="{{ route('logout') }}"
                                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                                Logout
+                                                {{ trans('messages.logout')}}
                                             </a>
 
                                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -77,8 +78,8 @@
                                     </ul>
                                 </li>
                             @else
-                                <a href="{{ route('login') }}">Login</a>
-                                <a href="{{ route('register') }}">Register</a>
+                                <a href="{{ route('login') }}">{{ trans('messages.login')}}</a>
+                                <a href="{{ route('register') }}">{{ trans('messages.register')}}</a>
                             @endauth
                         </div>
                     @endif
