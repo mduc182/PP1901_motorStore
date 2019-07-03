@@ -278,5 +278,13 @@ class AdminController extends Controller
 
             return redirect('admin/branch')->with(trans('mess_del'), trans('messages.delsuccess'));
         }
+
+        public function branch_info($id)
+        {
+            $branches = Branch::findOrfail($id);
+            $products = Product::all();
+
+            return view('admin.branch_info', compact('branches', 'products'));
+        }
     }
 

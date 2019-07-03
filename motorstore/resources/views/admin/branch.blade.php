@@ -24,6 +24,7 @@
                     <th scope="row">{!! $branch['id'] !!}</th>
                     <td>{!! $branch['address'] !!}</td>
                     <td>{!! $branch['phone'] !!}</td>
+                    <td><a class="btn btn-primary" href="{!! Route('branch_info', $branch->id) !!}">{{ trans('messages.info')}}</a>
                     <td><a class="btn btn-info" href="{!! Route('edit_branch', $branch->id) !!}">{{ trans('messages.edit')}}</a>
                         <form action="{!! Route('delete_branch') !!}" method="post">
                             <input type="hidden" value="{!! $branch->id !!}" name="id">
