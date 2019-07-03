@@ -44,6 +44,8 @@ return [
     'addsuccess' => 'Thêm Thành Công',
     'editsuccess' => 'Sửa Thành Công',
     'delsuccess' => 'Xóa Thành Công',
+    'details' => 'Chi Tiết Sản Phẩm',
+    'order' => 'Thêm Vào Giỏ Hàng',
 
 
 ];

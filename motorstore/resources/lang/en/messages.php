@@ -44,6 +44,8 @@ return [
     'addsuccess' => 'Add Success',
     'editsuccess' => 'Edit Success',
     'delsuccess' => 'Delete Success',
+    'details' => 'Detail',
+    'order' => 'Order',
 
 
 

@@ -53,4 +53,5 @@ Route::get('admin', 'HomeController@admin')->middleware('checkadmin','locale');
 
 Route::get('cate/catepage{id}','CategoryController@cate_page')->name('cate_page')->middleware('locale');
 Route::get('change_lang/{language}', 'HomeController@change_lang')->name('change_lang');
+Route::get('cate/product{id}','CategoryController@product_page')->name('product_page');
 

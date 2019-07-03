@@ -15,4 +15,11 @@ class CategoryController extends Controller
 
         return view('category.dream', compact('categories', 'products'));
     }
+
+    public function product_page($id)
+    {
+        $products = Product::findOrfail($id);
+
+        return view('category.detail', compact('products'));
+    }
 }
