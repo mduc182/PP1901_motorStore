@@ -19,4 +19,5 @@ class
     {
         return $this->belongsToMany('App\Model\Order');
     }
+
 }
