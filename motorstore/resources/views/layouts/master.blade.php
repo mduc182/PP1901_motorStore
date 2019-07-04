@@ -64,6 +64,15 @@
                                     </a>
 
                                     <ul class="dropdown-menu">
+                                        @if (Auth::check() && Auth::user()->isAdmin == 1)
+                                            <li>
+                                                <a href="{{ route('adminpage') }}">{{ trans('messages.adminpage') }}</a>
+                                            </li>
+                                            @else
+                                            <li>
+                                                <a href="{{ route('user_page', Auth::user()->id) }}">{{ trans('messages.userinfo') }}</a>
+                                            </li>
+                                        @endif
                                         <li>
                                             <a href="{{ route('logout') }}"
                                                onclick="event.preventDefault();

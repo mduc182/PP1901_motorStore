@@ -48,6 +48,9 @@ return [
     'order' => 'Thêm Vào Giỏ Hàng',
     'info' => 'Thông Tin Cửa Hàng',
     'info1' => 'Sản Phẩm Thuộc',
+    'adminpage' => 'Trang Admin',
+    'userinfo' => 'Thông tin người dùng',
+    'updatesuccess' => 'Sửa Thành Công',
 
 
 ];
