@@ -51,6 +51,7 @@ return [
     'adminpage' => 'AdminPage',
     'userinfo' => 'User Profile',
     'updatesuccess' => 'Update Success',
+
     'addimage' => 'AddImage',
     'editimage' => 'EditImage',
     'addcontactsuccess' => 'Thanks For Support. We will response as soon as possible',
@@ -62,6 +63,7 @@ return [
     'information' => 'Our Address :',
     'sell' => 'Exchange motor :',
     'ophone' => 'Hotline :'
+
 
 
 
