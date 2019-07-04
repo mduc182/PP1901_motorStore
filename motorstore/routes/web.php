@@ -50,9 +50,11 @@ Route::group([
     Route::get('admin/branch{id}','AdminController@branch_info')->name('branch_info');
 
 });
-Route::get('admin', 'HomeController@admin')->middleware('checkadmin','locale');
+Route::get('admin', 'HomeController@admin')->name('adminpage')->middleware('checkadmin','locale');
 
 Route::get('cate/catepage{id}','CategoryController@cate_page')->name('cate_page')->middleware('locale');
 Route::get('change_lang/{language}', 'HomeController@change_lang')->name('change_lang');
 Route::get('cate/product{id}','CategoryController@product_page')->name('product_page');
+Route::get('userpage/{id}','HomeController@user_profile')->name('user_page')->middleware('locale');
+Route::post('userpage/{id}', 'HomeController@update_users')->name('update_users')->middleware('locale');
 

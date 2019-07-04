@@ -48,6 +48,10 @@ return [
     'order' => 'Order',
     'info' => 'Info',
     'info1' => 'Product From',
+    'adminpage' => 'AdminPage',
+    'userinfo' => 'User Profile',
+    'updatesuccess' => 'Update Success',
+
 
 
 
