@@ -52,9 +52,6 @@ return [
     'userinfo' => 'User Profile',
     'updatesuccess' => 'Update Success',
     'addimage' => 'AddImage',
-    'editimage' => 'EditImage'
-
-    'addimage' => 'AddImage',
     'editimage' => 'EditImage',
     'addcontactsuccess' => 'Thanks For Support. We will response as soon as possible',
     'notes' => 'Note :',

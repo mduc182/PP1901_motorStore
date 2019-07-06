@@ -198,7 +198,6 @@ class AdminController extends Controller
 
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
-
         ]);
 
 
@@ -250,7 +249,6 @@ class AdminController extends Controller
         request()->validate([
 
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-
 
         ]);
 
