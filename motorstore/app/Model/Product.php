@@ -19,4 +19,9 @@ class
     {
         return $this->belongsToMany('App\Model\Order');
     }
+
+    public function images()
+    {
+        return $this->hasMany(ImageProduct::class, 'product_id');
+    }
 }
