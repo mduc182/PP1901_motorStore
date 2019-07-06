@@ -32,7 +32,11 @@
                     <td>{!! $product['category']['catename'] !!}</td>
                     <td>{!! $product['branch']['address'] !!}</td>
                     <td><a class="btn btn-info" href="{!! Route('edit_product', $product['id']) !!}">{{ trans('messages.edit')}}</a>
-                    <a class="btn btn-danger">{{ trans('messages.delete')}}</a></td>
+                        <form action="{!! Route('delete_product') !!}" method="post">
+                            <input type="hidden" value="{!! $product['id'] !!}" name="id">
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <input type="submit" value="{{ trans('messages.delete') }}" class="btn btn-danger">
+                        </form></td>
 
 
                 </tr>

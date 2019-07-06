@@ -18,9 +18,7 @@
             <input type="text" name="detail" value="{!! $products->detail !!}" class="form-control">
         </div>
         <div class="col-md-6">
-            <a href="{!! Route('product_page', $products->id) !!}"><img class="card-img-top"
-                                                                        src="https://vn-test-11.slatic.net/p/8/xe-may-sh-mode-thoi-trang-trang-2017-smart-key-5673-7075394-12f70af9b6b57c7ce664c2966c941c82-catalog.jpg_340x340q80.jpg_.webp"
-                                                                        alt=""></a>
+            <a href="{!! Route('product_page', $products->id) !!}"><img src="/images/{!! $products->image !!}" alt="" width="250px" height="250px"></a>
             <br>
             <br>
             <br>

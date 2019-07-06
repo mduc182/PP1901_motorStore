@@ -10,7 +10,7 @@
                 <p class="alert alert-danger">{!! $error !!}</p>
             @endforeach
         @endif
-        <form action="{!! Route('update_product', $products->id) !!}" method="post">
+        <form action="{!! Route('update_product', $products->id) !!}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="col-md-6">
                 <label>{{ trans('messages.pdname')}}</label>
@@ -27,6 +27,9 @@
                 <input type="text" name="price" value="{!! $products->price !!}" class="form-control">
                 <label>{{ trans('messages.detail')}}</label>
                 <input type="text" name="detail" value="{!! $products->detail !!}" class="form-control">
+                <label for="Product Name">{{ trans('messages.editimage')}}</label>
+                <br>
+                <input type="file" class="form-control" name="image" />
                 <label>{{ trans('messages.catename')}}</label>
                 <br>
                 <select id="category_id" name="category_id">

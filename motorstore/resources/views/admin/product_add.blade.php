@@ -10,7 +10,7 @@
                 <p class="alert alert-danger">{!! $error !!}</p>
             @endforeach
         @endif
-        <form action="{!! Route('store_product') !!}" method="post">
+        <form action="{!! Route('store_product') !!}" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="col-md-6">
                 <label>{{ trans('messages.pdname')}}</label>
@@ -45,6 +45,10 @@
                 <br>
                 <br>
                 <br>
+                <label for="Product Name">{{ trans('messages.addimage')}}</label>
+                <br>
+                <input type="file" class="form-control" name="image" />
+                <br><br>
                 <input class="btn btn-success" value="{{ trans('messages.add')}}" type="submit" name="btn-edit">
             </div>
         </form>
