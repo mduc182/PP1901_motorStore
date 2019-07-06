@@ -198,6 +198,7 @@ class AdminController extends Controller
 
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
+
         ]);
 
 
@@ -212,11 +213,13 @@ class AdminController extends Controller
 
         if ($products->save()) {
             $mess = trans('messages.addsuccess');
+
         }
 
 
 
                 return view('admin.product_add', compact('products', 'categories', 'branches'))->with(trans('mess'), $mess);
+
     }
 
     public function edit_product($id)
@@ -247,6 +250,7 @@ class AdminController extends Controller
         request()->validate([
 
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
 
         ]);
 

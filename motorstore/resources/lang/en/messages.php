@@ -51,6 +51,8 @@ return [
     'adminpage' => 'AdminPage',
     'userinfo' => 'User Profile',
     'updatesuccess' => 'Update Success',
+    'addimage' => 'AddImage',
+    'editimage' => 'EditImage'
 
     'addimage' => 'AddImage',
     'editimage' => 'EditImage',

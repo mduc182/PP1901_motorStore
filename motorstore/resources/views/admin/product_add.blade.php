@@ -49,7 +49,7 @@
                 <br>
                 <input type="file" class="form-control" name="image" multiple="true">
                 <br><br>
-                <input class="btn btn-success" value="{{ trans('messages.add')}}" type="submit" name="btn-edit">
+                <input class="btn btn-success" value="{{ trans('messages.add')}}" type="submit" name="btn-add">
             </div>
         </form>
     </div>
