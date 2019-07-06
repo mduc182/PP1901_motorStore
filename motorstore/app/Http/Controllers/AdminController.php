@@ -193,38 +193,25 @@ class AdminController extends Controller
         $products->detail = $request->get('detail');
         $products->category_id = $request->get('category_id');
 
-        $this->validate($request, [
-            'image' => 'required',
+        $products->image = $request->get('image');
+
+        request()->validate([
+
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+        request()->image->move(public_path('images'), $imageName);
+        $products->image = $imageName;
 
+        if ($products->save()) {
+            $mess = trans('messages.addsuccess');
 
-
-        if($request->hasFile('images')) {
-            $allowedfileExtension = ['pdf', 'jpg', 'png', 'docx'];
-            $files = $request->file('images');
-            foreach ($files as $file) {
-                $filename = $file->getClientOriginalName();
-                $extension = $file->getClientOriginalExtension();
-                $check = in_array($extension, $allowedfileExtension);
-                dd($check);
-                if ($check) {
-                    $items = Item::create($request->all());
-                    foreach ($request->images as $image) {
-                        $filename = $image->store('images');
-                        ItemDetail::create([
-                            'item_id' => $items->id,
-                            'filename' => $filename
-                        ]);
-                    }
-                    echo "Upload Successfully";
-                }
-            }
         }
 
 
 
-                return view('admin.product_add', compact('products', 'categories', 'branches'));
+                return view('admin.product_add', compact('products', 'categories', 'branches'))->with(trans('mess'), $mess);
     }
 
     public function edit_product($id)
@@ -254,16 +241,10 @@ class AdminController extends Controller
 
         request()->validate([
 
-            'image' => 'required',
-            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);
-
-
         $imageName = time().'.'.request()->image->getClientOriginalExtension();
-
-
-
         request()->image->move(public_path('images'), $imageName);
         $products->image = $imageName;
 
