@@ -58,4 +58,5 @@ Route::get('change_lang/{language}', 'HomeController@change_lang')->name('change
 Route::get('cate/product{id}','CategoryController@product_page')->name('product_page');
 Route::get('userpage/{id}','HomeController@user_profile')->name('user_page')->middleware('locale');
 Route::post('userpage/{id}', 'HomeController@update_users')->name('update_users')->middleware('locale');
-
+Route::get('contact','ContactController@index')->name('contact_page')->middleware('locale');;
+Route::post('contact','ContactController@store_contact')->name('store_contact');

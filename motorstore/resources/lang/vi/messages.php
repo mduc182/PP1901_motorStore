@@ -52,7 +52,21 @@ return [
     'userinfo' => 'Thông tin người dùng',
     'updatesuccess' => 'Sửa Thành Công',
     'addimage' => 'Thêm Ảnh Sản Phẩm',
-    'editimage' => 'Sửa Ảnh Sản Phẩm'
+    'editimage' => 'Sửa Ảnh Sản Phẩm',
+    'addcontactsuccess' => 'Cảm ơn bạn đã đóng góp. Chúng Tôi Sẽ Liên Lạc Với Bạn Sớm Nhất Có Thể.',
+    'notes' => 'Ghi chú của bạn :',
+    'yphone' => 'Số Điện Thoại Của Bạn :',
+    'yaddress' => 'Địa Chỉ Của Bạn :',
+    'contactpage' => 'Liên Lạc Với Chúng Tôi',
+    'introduce' => 'Xe Máy Vinh Khoa Luôn Mang Đến Sự Tin Tưởng Và Hài Lòng Tới Khách Hàng... Tiêu Chí Hàng Đầu Của Chúng Tôi Là : Chuyên Nghiệp - Uy Tín - Chất Lượng',
+    'information' => 'Địa Chỉ Cửa Hàng',
+    'sell' => 'Mua Bán Xe Máy',
+    'ophone' => 'Điện Thoại :',
+    'contacthere' => 'Liên Lạc Tại Đây',
+    'address1' => '32 Chùa Hà, Cầu Giấy , Hà Nội',
+    'address2' => '49 Ngọc Hồi , Hoàng Mai , Hà Nội',
+    'address3' => '88 Trần Quý Cáp, Đống Đa,Hà Nội',
+
 
 
 ];
