@@ -38,6 +38,7 @@ Route::group([
     Route::get('editcate/{id}', 'AdminController@edit_cate')->name('edit_cate');
     Route::post('editcate/{id}', 'AdminController@update_cate')->name('update_cate');
     Route::post('deletecate', 'AdminController@delete_cate')->name('delete_cate');
+    Route::post('deleteproduct', 'AdminController@delete_product')->name('delete_product');
     Route::get('addproduct', 'AdminController@create_product')->name('add_product');
     Route::post('addproduct', 'AdminController@store_product')->name('store_product');
     Route::get('editproduct/{id}', 'AdminController@edit_product')->name('edit_product');
@@ -57,4 +58,5 @@ Route::get('change_lang/{language}', 'HomeController@change_lang')->name('change
 Route::get('cate/product{id}','CategoryController@product_page')->name('product_page');
 Route::get('userpage/{id}','HomeController@user_profile')->name('user_page')->middleware('locale');
 Route::post('userpage/{id}', 'HomeController@update_users')->name('update_users')->middleware('locale');
-
+Route::get('contact','ContactController@index')->name('contact_page')->middleware('locale');;
+Route::post('contact','ContactController@store_contact')->name('store_contact');
