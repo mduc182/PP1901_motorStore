@@ -57,6 +57,7 @@ class AdminController extends Controller
                 $query->select('id', 'address');
             }])->get()->toArray();
 
+
         return view('admin.product', compact('products'));
     }
 
@@ -191,12 +192,26 @@ class AdminController extends Controller
         $products->price = $request->get('price');
         $products->detail = $request->get('detail');
         $products->category_id = $request->get('category_id');
+
+        $products->image = $request->get('image');
+
+        request()->validate([
+
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+        ]);
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+        request()->image->move(public_path('images'), $imageName);
+        $products->image = $imageName;
+
         if ($products->save()) {
             $mess = trans('messages.addsuccess');
+
         }
 
 
-        return view('admin.product_add', compact('products', 'categories', 'branches'))->with(trans('mess'), $mess);
+
+                return view('admin.product_add', compact('products', 'categories', 'branches'))->with(trans('mess'), $mess);
     }
 
     public function edit_product($id)
@@ -222,12 +237,31 @@ class AdminController extends Controller
         $products->category_id = $request->get('category_id');
         $products->branch_id = $request->get('branch_id');
 
+        $products->image = $request->get('image');
+
+        request()->validate([
+
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+        ]);
+        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+        request()->image->move(public_path('images'), $imageName);
+        $products->image = $imageName;
+
         if ($products->save()) {
             $mess = trans('messages.updatesuccess');
         }
 
         return view('admin.product_edit', compact('products', 'categories', 'branches'))->with(trans('mess'), $mess);
     }
+
+        public function delete_product(Request $request)
+        {
+            $products = Product::findOrfail($request->get('id'));
+            $products->delete();
+
+            return redirect('admin/product')->with(trans('mess_del'), trans('messages.delsuccess'));
+        }
 
         public function create_branch()
         {
