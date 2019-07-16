@@ -52,8 +52,20 @@ return [
     'userinfo' => 'User Profile',
     'updatesuccess' => 'Update Success',
     'addimage' => 'AddImage',
-    'editimage' => 'EditImage'
-
+    'editimage' => 'EditImage',
+    'addcontactsuccess' => 'Thanks For Support. We will response as soon as possible',
+    'notes' => 'Note :',
+    'yphone' => 'Your Phone :',
+    'yaddress' => 'Your Address :',
+    'contactpage' => 'Get Contact Here',
+    'introduce' => 'Your Satisfaction is Our Priority',
+    'information' => 'Our Address :',
+    'sell' => 'Exchange motor :',
+    'ophone' => 'Hotline :',
+    'contacthere' => 'Contact Here',
+    'address1' => '32 Chua Ha Street, Cau Giay , Ha Noi',
+    'address3' => '88 Tran Quy Cap Street, Dong Da , Ha Noi',
+    'address2' => '49 Ngoc Hoi Street, Hoang Mai , Ha Noi',
 
 
 
