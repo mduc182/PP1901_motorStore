@@ -38,6 +38,7 @@ Route::group([
     Route::get('editcate/{id}', 'AdminController@edit_cate')->name('edit_cate');
     Route::post('editcate/{id}', 'AdminController@update_cate')->name('update_cate');
     Route::post('deletecate', 'AdminController@delete_cate')->name('delete_cate');
+    Route::post('deleteproduct', 'AdminController@delete_product')->name('delete_product');
     Route::get('addproduct', 'AdminController@create_product')->name('add_product');
     Route::post('addproduct', 'AdminController@store_product')->name('store_product');
     Route::get('editproduct/{id}', 'AdminController@edit_product')->name('edit_product');

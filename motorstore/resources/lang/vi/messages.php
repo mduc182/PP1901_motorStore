@@ -51,6 +51,8 @@ return [
     'adminpage' => 'Trang Admin',
     'userinfo' => 'Thông tin người dùng',
     'updatesuccess' => 'Sửa Thành Công',
+    'addimage' => 'Thêm Ảnh Sản Phẩm',
+    'editimage' => 'Sửa Ảnh Sản Phẩm'
 
 
 ];
