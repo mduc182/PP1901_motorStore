@@ -52,7 +52,16 @@ return [
     'userinfo' => 'User Profile',
     'updatesuccess' => 'Update Success',
     'addimage' => 'AddImage',
-    'editimage' => 'EditImage'
+    'editimage' => 'EditImage',
+    'addcontactsuccess' => 'Thanks For Support. We will response as soon as possible',
+    'notes' => 'Note :',
+    'yphone' => 'Your Phone :',
+    'yaddress' => 'Your Address :',
+    'contactpage' => 'Get Contact Here',
+    'introduce' => 'Your Satisfaction is Our Priority',
+    'information' => 'Our Address :',
+    'sell' => 'Exchange motor :',
+    'ophone' => 'Hotline :'
 
 
 
