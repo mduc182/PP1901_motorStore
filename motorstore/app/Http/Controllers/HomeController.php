@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Http\Requests\UserFromRequest;
 use App\Model\Category;
+use App\Model\Post;
 use App\Model\Product;
 use App\Model\User;
 use Illuminate\Http\Request;
@@ -28,9 +29,11 @@ class HomeController extends Controller
     public function index()
     {
         $categories = Category::where('parent_id',0)->with('childs')->get();
-        $products = Product::all();
+        $posts = Post::where('id', '>', 0)->with('products')->get();
 
-        return view('index', compact('categories', 'products'));
+
+
+        return view('index', compact('categories', 'posts'));
     }
 
     public function admin()

@@ -48,6 +48,14 @@
                 </select>
 
                 <br>
+                <label>{{ trans('messages.postname')}}</label>
+                <br>
+                <select id="post_id" name="post_id">
+
+                    @foreach($posts as $post)
+                        <option value="{!! $post->id !!}">{!! $post->post_name !!}</option>
+                    @endforeach
+                </select>
                 <br>
                 <br>
                 <input class="btn btn-success" value="{{ trans('messages.edit')}}" type="submit" name="btn-edit">

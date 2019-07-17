@@ -28,6 +28,13 @@ Route::group([
     Route::get('branch', 'AdminController@branchpage')->name('branchpage');
     Route::get('order', 'AdminController@orderpage')->name('orderpage');
     Route::get('contact', 'AdminController@contactpage')->name('contactpage');
+    Route::get('post', 'PostController@post_page')->name('post_page');
+    Route::get('addpost', 'PostController@add_post')->name('add_post');
+    Route::post('addpost', 'PostController@store_post')->name('store_post');
+    Route::get('editpost/{id}', 'PostController@edit_post')->name('edit_post');
+    Route::post('updatepost/{id}', 'PostController@update_post')->name('update_post');
+    Route::post('deletepost', 'PostController@delete_post')->name('delete_post');
+
 
     Route::get('user/{id}', 'AdminController@edit_user')->name('edit_user');
     Route::post('user/{id}', 'AdminController@update_user')->name('update_user');

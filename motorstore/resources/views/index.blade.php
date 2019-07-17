@@ -56,5 +56,45 @@
             </div>
         </div>
     </section>
+    @foreach($posts as $post)
+    <section class="feature_product_area">
+        <div class="container">
+            <div class="f_p_inner">
+                <div class="row">
+                    <div class="col-lg-3">
+                            <div class="s_m_title">
+                                <h2>{!! $post->post_name !!}</h2>
+                            </div>
+
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="fillter_slider_inner">
+
+                            <div class="fillter_slider owl-carousel">
+                                @foreach($post->products as $product)
+
+                                <div class="item shoes">
+                                    <div class="fillter_product_item bags">
+                                        <div class="f_p_img">
+                                            <a href="{!! Route('product_page', $product->id) !!}"><img  src="/images/{!! $product->image !!}" alt=""></a>
+                                        </div>
+                                        <div class="f_p_text">
+                                            <h5>{!! $product->pdname !!}</h5>
+                                            <h4>{!! $product->price !!}</h4>
+                                        </div>
+
+                                </div>
+
+                            </div>
+                                @endforeach
+                        </div>
+
+                </div>
+            </div>
+        </div>
+            </div>
+        </div>
+    </section>
+    @endforeach
 
 @endsection

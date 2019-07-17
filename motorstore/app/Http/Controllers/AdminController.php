@@ -9,6 +9,7 @@ use App\Model\Branch;
 use App\Model\Category;
 use App\Model\Contact;
 use App\Model\Order;
+use App\Model\Post;
 use App\Model\Product;
 use App\Model\User;
 use Illuminate\Http\Request;
@@ -19,6 +20,7 @@ class AdminController extends Controller
 {
     public $categories;
     public $branches;
+    public $posts;
 
     public function change_lang($language)
     {
@@ -31,6 +33,7 @@ class AdminController extends Controller
     {
         $this->categories = Category::all();
         $this->branches = Branch::all();
+        $this->posts = Post::all();
     }
 
     public function userpage()
@@ -39,6 +42,7 @@ class AdminController extends Controller
 
         return view('admin.user', compact('users'));
     }
+
 
     public function catepage()
     {
@@ -52,6 +56,9 @@ class AdminController extends Controller
         $products = Product::with([
             'category' => function ($query) {
                 $query->select('id', 'catename');
+            },
+            'post' => function ($query) {
+                $query->select('id', 'post_name');
             },
             'branch' => function ($query) {
                 $query->select('id', 'address');
@@ -175,14 +182,16 @@ class AdminController extends Controller
         $products = Product::all();
         $categories = $this->categories;
         $branches = $this->branches;
+        $posts = $this->posts;
 
-        return view('admin.product_add', compact('products', 'categories', 'branches'));
+        return view('admin.product_add', compact('products', 'categories', 'branches', 'posts'));
     }
 
     public function store_product(ProductFromRequest $request)
     {
         $branches = $this->branches;
         $categories = $this->categories;
+        $posts = $this->posts;
         $products = new Product();
         $products->pdname = $request->get('pdname');
         $products->plate = $request->get('plate');
@@ -192,6 +201,7 @@ class AdminController extends Controller
         $products->price = $request->get('price');
         $products->detail = $request->get('detail');
         $products->category_id = $request->get('category_id');
+        $products->post_id = $request->get('post_id');
 
         $products->image = $request->get('image');
 
@@ -211,7 +221,7 @@ class AdminController extends Controller
 
 
 
-                return view('admin.product_add', compact('products', 'categories', 'branches'))->with(trans('mess'), $mess);
+                return view('admin.product_add', compact('products', 'posts', 'categories', 'branches'))->with(trans('mess'), $mess);
     }
 
     public function edit_product($id)
@@ -219,11 +229,13 @@ class AdminController extends Controller
         $products = Product::findOrfail($id);
         $categories = $this->categories;
         $branches = $this->branches;
-        return view('admin.product_edit', compact('products', 'categories', 'branches'));
+        $posts = $this->posts;
+        return view('admin.product_edit', compact('products', 'posts', 'categories', 'branches'));
     }
 
     public function update_product(ProductFromRequest $request, $id)
     {
+        $posts = $this->posts;
         $branches = $this->branches;
         $categories = $this->categories;
         $products = Product::findOrFail($id);
@@ -236,6 +248,7 @@ class AdminController extends Controller
         $products->detail = $request->get('detail');
         $products->category_id = $request->get('category_id');
         $products->branch_id = $request->get('branch_id');
+        $products->post_id = $request->get('post_id');
 
         $products->image = $request->get('image');
 
@@ -252,7 +265,7 @@ class AdminController extends Controller
             $mess = trans('messages.updatesuccess');
         }
 
-        return view('admin.product_edit', compact('products', 'categories', 'branches'))->with(trans('mess'), $mess);
+        return view('admin.product_edit', compact('products', 'posts', 'categories', 'branches'))->with(trans('mess'), $mess);
     }
 
         public function delete_product(Request $request)
