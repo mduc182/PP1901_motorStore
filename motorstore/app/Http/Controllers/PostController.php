@@ -12,7 +12,7 @@ class PostController extends Controller
 {
     public function post_page()
     {
-        $posts = Post::all();
+        $posts = Post::paginate(3);
 
         return view('admin.post', compact('posts'));
     }
@@ -33,7 +33,6 @@ class PostController extends Controller
         if ($posts->save()) {
             $mess = trans('messages.addsuccess');
         }
-        $posts = Post::all();
 
         return view('admin.post_add', compact('posts'))->with(trans('mess'), $mess);
     }
@@ -53,7 +52,6 @@ class PostController extends Controller
         if ($posts->save()) {
             $mess = trans('messages.updatesuccess');
         }
-        $posts = Post::all();
 
         return view('admin.post', compact('posts'))->with(trans('mess'), $mess);
     }

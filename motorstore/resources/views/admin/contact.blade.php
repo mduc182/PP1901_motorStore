@@ -26,7 +26,7 @@
                 </tr>
                 </tbody>
             @endforeach
-
+            {{ $contacts->links() }}
         </table>
     </div>
 @endsection

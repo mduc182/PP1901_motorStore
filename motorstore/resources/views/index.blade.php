@@ -79,8 +79,10 @@
                                             <a href="{!! Route('product_page', $product->id) !!}"><img  src="/images/{!! $product->image !!}" alt=""></a>
                                         </div>
                                         <div class="f_p_text">
-                                            <h5>{!! $product->pdname !!}</h5>
-                                            <h4>{!! $product->price !!}</h4>
+                                            <h5>{{ trans('messages.pdname')}}{!! $product->pdname !!}</h5>
+                                            <h4>{{ trans('messages.price')}}{!! $product->price !!}</h4>
+                                            <br>
+                                            <a class="btn btn-success">{{ trans('messages.order')}}</a>
                                         </div>
 
                                 </div>

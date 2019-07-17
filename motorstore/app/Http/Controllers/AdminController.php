@@ -38,7 +38,7 @@ class AdminController extends Controller
 
     public function userpage()
     {
-        $users = User::all();
+        $users = User::paginate(10);
 
         return view('admin.user', compact('users'));
     }
@@ -46,7 +46,7 @@ class AdminController extends Controller
 
     public function catepage()
     {
-        $categories = Category::all();
+        $categories = Category::paginate(5);
 
         return view('admin.cate', compact('categories'));
     }
@@ -62,7 +62,7 @@ class AdminController extends Controller
             },
             'branch' => function ($query) {
                 $query->select('id', 'address');
-            }])->get()->toArray();
+            }])->paginate(5);
 
 
         return view('admin.product', compact('products'));
@@ -80,7 +80,7 @@ class AdminController extends Controller
         $orders = Order::with([
             'user' => function ($query) {
                 $query->select('id', 'name', 'user_phone', 'user_address');
-            }])->get()->toArray();
+            }])->paginate(5);
 
         return view('admin.order', compact('orders'));
     }
@@ -90,7 +90,7 @@ class AdminController extends Controller
         $contacts = Contact::with([
             'user' => function ($query) {
                 $query->select('id', 'name', 'user_phone', 'user_address');
-            }])->get()->toArray();
+            }])->paginate(5);
 
         return view('admin.contact', compact('contacts'));
     }
@@ -329,7 +329,7 @@ class AdminController extends Controller
         public function branch_info($id)
         {
             $branches = Branch::findOrfail($id);
-            $products = Product::all();
+            $products = Product::Paginate(15);
 
             return view('admin.branch_info', compact('branches', 'products'));
         }

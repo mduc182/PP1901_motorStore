@@ -29,12 +29,12 @@ return [
     'type' => 'Dòng xe',
     'editcate' => 'Sửa Loại Xe',
     'addproduct' => 'Thêm Xe',
-    'pdname' => 'Tên Xe',
-    'plate' => 'Biển Số',
-    'color' => 'Màu Sắc',
-    'year' => 'Năm Sản Xuất',
-    'price' => 'Giá Bán',
-    'detail' => 'Mô Tả',
+    'pdname' => 'Tên Xe : ',
+    'plate' => 'Biển Số : ',
+    'color' => 'Màu Sắc : ',
+    'year' => 'Năm Sản Xuất : ',
+    'price' => 'Giá Bán : ',
+    'detail' => 'Mô Tả : ',
     'editproduct' => 'Sửa Sản Phẩm',
     'addbranch' => 'Thêm cửa hàng',
     'editbranch' => 'Sửa Cửa Hàng',
@@ -68,7 +68,8 @@ return [
     'address3' => '88 Trần Quý Cáp, Đống Đa,Hà Nội',
     'postname' => 'Tên Topic',
     'addpost' => 'Thêm Topic',
-    'editpost' => 'Sửa Topic'
+    'editpost' => 'Sửa Topic',
+    'bill' => 'Thanh Toán'
 
 
 

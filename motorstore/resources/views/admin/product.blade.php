@@ -44,6 +44,7 @@
                 </tr>
                 </tbody>
             @endforeach
+            {{ $products->links() }}
 
         </table>
     </div>
