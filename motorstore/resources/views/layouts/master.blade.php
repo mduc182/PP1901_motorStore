@@ -57,11 +57,14 @@
             <div class="col-lg-3">
                 <div class="top_right_header">
                     @if (Route::has('login'))
+                        <li>
+                            <a href="{!! Route('cart_page') !!}">{{ trans('messages.bill') }}</a>
+                        </li>
                         <div class="top-right links">
                             @auth
                                 <li class="dropdown">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                        {{ Auth::user()->name }} <span class="caret"></span>
+                                       {{ Auth::user()->name }} <span class="caret"></span>
                                     </a>
 
                                     <ul class="dropdown-menu">

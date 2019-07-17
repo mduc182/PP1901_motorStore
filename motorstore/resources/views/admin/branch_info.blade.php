@@ -14,9 +14,11 @@
                     <h5>{{ trans('messages.price')}}{!! $product->price !!}</h5>
                     <h5>{{ trans('messages.year')}}{!! $product->year !!}</h5>
                     <h5>{{ trans('messages.detail')}}{!! $product->detail !!}</h5>
-
                 </div>
             </div>
         </div>
+
     @endforeach
+    {{ $products->links() }}
+
 @endsection

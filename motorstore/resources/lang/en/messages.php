@@ -68,7 +68,8 @@ return [
     'address2' => '49 Ngoc Hoi Street, Hoang Mai , Ha Noi',
     'postname' => 'Topic Name',
     'addpost' => 'ADD Topic',
-    'editpost' => 'EDIT Topic'
+    'editpost' => 'EDIT Topic',
+    'bill' => 'Pay'
 
 
 
