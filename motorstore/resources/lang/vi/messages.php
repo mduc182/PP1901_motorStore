@@ -66,6 +66,9 @@ return [
     'address1' => '32 Chùa Hà, Cầu Giấy , Hà Nội',
     'address2' => '49 Ngọc Hồi , Hoàng Mai , Hà Nội',
     'address3' => '88 Trần Quý Cáp, Đống Đa,Hà Nội',
+    'postname' => 'Tên Topic',
+    'addpost' => 'Thêm Topic',
+    'editpost' => 'Sửa Topic'
 
 
 

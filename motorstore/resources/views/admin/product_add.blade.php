@@ -19,14 +19,14 @@
                 <input type="text" name="plate" class="form-control">
                 <label>{{ trans('messages.color')}}</label>
                 <input type="text" name="color" class="form-control">
-                <label>{{ trans('messages.type')}}</label>
-                <input type="text" name="type" class="form-control">
                 <label>{{ trans('messages.year')}}</label>
                 <input type="text" name="year" class="form-control">
                 <label>{{ trans('messages.price')}}</label>
                 <input type="text" name="price" class="form-control">
                 <label>{{ trans('messages.detail')}}</label>
                 <input type="text" name="detail" class="form-control">
+                <label>{{ trans('messages.type')}}</label>
+                <input type="text" name="type" class="form-control">
                 <label>{{ trans('messages.catename')}}</label>
                 <br>
                 <select id="category_id" name="category_id"><
@@ -43,7 +43,13 @@
                     @endforeach
                 </select>
                 <br>
+                <label>{{ trans('messages.postname')}}</label>
                 <br>
+                <select id="post_id" name="post_id"><
+                    @foreach($posts as $post)
+                        <option value="{!! $post->id !!}">{!! $post->post_name !!}</option>
+                    @endforeach
+                </select>
                 <br>
                 <label for="Product Name">{{ trans('messages.addimage')}}</label>
                 <br>

@@ -15,6 +15,7 @@
                 <th scope="col">{{ trans('messages.detail')}}</th>
                 <th scope="col">{{ trans('messages.type')}}</th>
                 <th scope="col">{{ trans('messages.address')}}</th>
+                <th scope="col">{{ trans('messages.postname')}}</th>
                 <th scope="col">{{ trans('messages.action')}}</th>
 
             </tr>
@@ -31,6 +32,7 @@
                     <td>{!! $product['detail'] !!}</td>
                     <td>{!! $product['category']['catename'] !!}</td>
                     <td>{!! $product['branch']['address'] !!}</td>
+                    <td>{!! $product['post']['post_name'] !!}</td>
                     <td><a class="btn btn-info" href="{!! Route('edit_product', $product['id']) !!}">{{ trans('messages.edit')}}</a>
                         <form action="{!! Route('delete_product') !!}" method="post">
                             <input type="hidden" value="{!! $product['id'] !!}" name="id">

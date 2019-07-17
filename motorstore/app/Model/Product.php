@@ -24,4 +24,8 @@ class
     {
         return $this->hasMany(ImageProduct::class, 'product_id');
     }
+
+    public function post() {
+        return $this->belongsTo('App\Model\Post');
+    }
 }

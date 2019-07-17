@@ -27,7 +27,7 @@ return [
     'addcate' => 'Add Category',
     'catename' => 'Category Name',
     'type' => 'Category Type',
-    'editcate' => 'Edit Catgory',
+    'editcate' => 'Edit Category',
     'addproduct' => 'ADD New Product',
     'pdname' => 'Product Name : ',
     'plate' => 'Plate : ',
@@ -66,6 +66,9 @@ return [
     'address1' => '32 Chua Ha Street, Cau Giay , Ha Noi',
     'address3' => '88 Tran Quy Cap Street, Dong Da , Ha Noi',
     'address2' => '49 Ngoc Hoi Street, Hoang Mai , Ha Noi',
+    'postname' => 'Topic Name',
+    'addpost' => 'ADD Topic',
+    'editpost' => 'EDIT Topic'
 
 
 

@@ -80,7 +80,7 @@
                 <a href="{{ route('userpage')}}" class="list-group-item">{{ trans('messages.manageuser')}}</a>
                 <a href="{{ route('catepage')}}" class="list-group-item">{{ trans('messages.managecate')}}</a>
                 <a href="{{ route('productpage')}}" class="list-group-item">{{ trans('messages.manageproduct')}}</a>
-                <a href="" class="list-group-item">{{ trans('messages.managepost')}}</a>
+                <a href="{{ route('post_page')}}" class="list-group-item">{{ trans('messages.managepost')}}</a>
                 <a href="{{ route('branchpage')}}" class="list-group-item">{{ trans('messages.managebranch')}}</a>
                 <a href="{{ route('orderpage')}}" class="list-group-item">{{ trans('messages.manageorder')}}</a>
                 <a href="{{ route('contactpage')}}" class="list-group-item">{{ trans('messages.managecontact')}}</a>
