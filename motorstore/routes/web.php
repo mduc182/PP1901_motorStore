@@ -20,7 +20,10 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->middleware('locale');
 Route::group([
     'prefix' => 'admin',
-    'middleware' => 'locale','checkadmin'
+    'middleware' => [
+        'locale',
+        'checkadmin',
+    ],
 ], function(){
     Route::get('user', 'AdminController@userpage')->name('userpage');
     Route::get('cate', 'AdminController@catepage')->name('catepage');
@@ -34,6 +37,7 @@ Route::group([
     Route::get('editpost/{id}', 'PostController@edit_post')->name('edit_post');
     Route::post('updatepost/{id}', 'PostController@update_post')->name('update_post');
     Route::post('deletepost', 'PostController@delete_post')->name('delete_post');
+    Route::post('deletecontact', 'ContactController@delete_contact')->name('delete_contact');
 
 
     Route::get('user/{id}', 'AdminController@edit_user')->name('edit_user');
@@ -67,4 +71,9 @@ Route::get('userpage/{id}','HomeController@user_profile')->name('user_page')->mi
 Route::post('userpage/{id}', 'HomeController@update_users')->name('update_users')->middleware('locale');
 Route::get('contact','ContactController@index')->name('contact_page')->middleware('locale');;
 Route::post('contact','ContactController@store_contact')->name('store_contact');
-Route::get('cart','CartController@add_cart')->name('cart_page');
+Route::get('cart','CartController@index')->name('cart');
+Route::get('addcart/{id}','CartController@add_cart')->name('add_cart');
+Route::get('cartinfo','CartController@get_cart')->name('get_cart');
+Route::get('delete_cart/{id}','CartController@delete_cart')->name('delete_cart');
+Route::get('checkout','CartController@checkout')->name('checkout');
+Route::post('storecheckout','CartController@store_checkout')->name('store_checkout');

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactFromRequest;
+use App\Model\Category;
 use App\Model\Contact;
 use App\User;
 use Illuminate\Http\Request;
@@ -37,7 +38,15 @@ class ContactController extends Controller
             $mess = trans('messages.addcontactsuccess');
         }
 
-        return view('contact', compact('contacts','users'))->with(trans('mess'), $mess);
+        return view('contact', compact('contacts', 'users'))->with(trans('mess'), $mess);
+    }
+
+    public function delete_contact(Request $request)
+    {
+        $contacts = Contact::findOrfail($request->get('id'));
+        $contacts->delete();
+
+        return redirect('admin/contact')->with(trans('mess_del'), trans('messages.delsuccess'));
     }
 }
 

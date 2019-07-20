@@ -69,7 +69,12 @@ return [
     'postname' => 'Topic Name',
     'addpost' => 'ADD Topic',
     'editpost' => 'EDIT Topic',
-    'bill' => 'Pay'
+    'bill' => 'Pay',
+    'checkoutpage' => 'Checkout Page',
+    'total' => 'Total : ',
+    'notfound' => 'No Items In Card !!',
+    'buy' => 'Buy Now',
+    'ordersuccess' => 'Order Success. We will response as soon as possible'
 
 
 

@@ -2,6 +2,9 @@
 @section('content')
     <a class="btn btn-success" href="{!! Route('add_product') !!}">{{ trans('messages.addproduct')}}</a>
     <div class="col-lg-9">
+        @if(session('mess_del'))
+            <p class="alert alert-success">{{ session('mess_del') }}</p>
+        @endif
         <table class="table table-striped">
 
             <thead>
