@@ -24,8 +24,8 @@ class BranchFromRequest extends FormRequest
     public function rules()
     {
         return [
-            'address' => 'required',
-            'phone' => 'required',
+            'address' => 'required|string',
+            'phone' => 'required|int',
         ];
     }
 }

@@ -10,7 +10,7 @@
             @foreach($products as $product)
             <h4>{{ trans('messages.pdname')}}{{ $product['item']['pdname'] }}</h4>
             <h4>{{ trans('messages.total')}}{{ $total }}</h4>
-            @endforeach
+
             <br>
             <div id="charge-error" class="alert alert-danger {{ !Session::has('error') ? 'hidden' : ''  }}">
                 {{ Session::get('error') }}
@@ -35,12 +35,25 @@
                             <input type="text" id="phone" class="form-control" name="phone">
                         </div>
                     </div>
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="address">{{ trans('messages.pdname')}}</label>
+                            <input type="text" class="form-control" name="product_name" value="{{ $product['item']['pdname'] }}">
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label for="address">{{ trans('messages.total')}}</label>
+                            <input type="text" class="form-control" name="total" value="{{ $total }}">
+                        </div>
+                    </div>
                     <hr>
 
                 </div>
                 {{ csrf_field() }}
                 <button type="submit" class="btn btn-success">{{ trans('messages.buy')}}</button>
             </form>
+                @endforeach
         </div>
     </div>
 @endsection

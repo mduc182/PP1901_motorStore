@@ -25,7 +25,7 @@ class CategoryFromRequest extends FormRequest
     {
         return [
             'catename' => 'required|min:3',
-            'parent_id' => 'required',
+            'parent_id' => 'required|int',
         ];
     }
 }

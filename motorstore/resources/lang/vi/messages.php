@@ -73,7 +73,8 @@ return [
     'checkoutpage' => 'Xác Nhận Đặt Hàng',
     'notfound' => 'Không Có Sản Phẩm Trong Giỏ Hàng !!',
     'buy' => 'Đặt Mua Ngay ',
-    'ordersuccess' => 'Đặt Mua Thành Công . Chúng Tôi Sẽ Liên Lạc Lại Sớm Nhất Có Thể.'
+    'ordersuccess' => 'Đặt Mua Thành Công . Chúng Tôi Sẽ Liên Lạc Lại Sớm Nhất Có Thể.',
+    'total' => 'Tổng Tiền : '
 
 
 

@@ -1,6 +1,8 @@
 @extends('category.cate_display');
 @section('content')
     <div class="row">
+        <div class="col-md-2">
+        </div>
         <div class="col-md-6">
             <label>{{ trans('messages.pdname')}}</label>
             <input type="text" name="pdname" value="{!! $products->pdname !!}" class="form-control">
@@ -17,12 +19,15 @@
             <label>{{ trans('messages.details')}}</label>
             <input type="text" name="detail" value="{!! $products->detail !!}" class="form-control">
         </div>
-        <div class="col-md-6">
-            <a href="{!! Route('product_page', $products->id) !!}"><img src="/images/{!! $products->image !!}" alt="" width="250px" height="250px"></a>
+        <div class="col-md-4">
             <br>
             <br>
             <br>
-            <a class="btn btn-success">{{ trans('messages.order')}}</a>
+            <a href="{!! Route('product_page', $products->id) !!}"><img src="/images/{!! $products->image !!}" alt="" width="300px" height="300px"></a>
+            <br>
+            <br>
+            <br>
+            <a class="btn btn-success" href="{!! Route('add_cart', $products->id) !!}">{{ trans('messages.order')}}</a>
         </div>
     </div>
 @endsection
