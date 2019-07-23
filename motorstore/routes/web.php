@@ -59,21 +59,26 @@ Route::group([
     Route::get('editbranch/{id}', 'AdminController@edit_branch')->name('edit_branch');
     Route::post('editbranch/{id}', 'AdminController@update_branch')->name('update_branch');
     Route::post('deletebranch', 'AdminController@delete_branch')->name('delete_branch');
+    Route::post('deleteorder', 'AdminController@delete_order')->name('delete_order');
     Route::get('admin/branch{id}','AdminController@branch_info')->name('branch_info');
 
 });
 Route::get('admin', 'HomeController@admin')->name('adminpage')->middleware('checkadmin','locale');
 
-Route::get('cate/catepage{id}','CategoryController@cate_page')->name('cate_page')->middleware('locale');
+Route::group([
+    'middleware' => 'locale',
+], function() {
+Route::get('cate/catepage{id}', 'CategoryController@cate_page')->name('cate_page');
 Route::get('change_lang/{language}', 'HomeController@change_lang')->name('change_lang');
-Route::get('cate/product{id}','CategoryController@product_page')->name('product_page');
-Route::get('userpage/{id}','HomeController@user_profile')->name('user_page')->middleware('locale');
-Route::post('userpage/{id}', 'HomeController@update_users')->name('update_users')->middleware('locale');
-Route::get('contact','ContactController@index')->name('contact_page')->middleware('locale');;
-Route::post('contact','ContactController@store_contact')->name('store_contact');
-Route::get('cart','CartController@index')->name('cart');
-Route::get('addcart/{id}','CartController@add_cart')->name('add_cart');
-Route::get('cartinfo','CartController@get_cart')->name('get_cart');
-Route::get('delete_cart/{id}','CartController@delete_cart')->name('delete_cart');
-Route::get('checkout','CartController@checkout')->name('checkout');
-Route::post('storecheckout','CartController@store_checkout')->name('store_checkout');
+Route::get('cate/product{id}', 'CategoryController@product_page')->name('product_page');
+Route::get('userpage/{id}', 'HomeController@user_profile')->name('user_page');
+Route::post('userpage/{id}', 'HomeController@update_users')->name('update_users');
+Route::get('contact', 'ContactController@index')->name('contact_page');
+Route::post('contact', 'ContactController@store_contact')->name('store_contact');
+Route::get('cart', 'CartController@index')->name('cart');
+Route::get('addcart/{id}', 'CartController@add_cart')->name('add_cart');
+Route::get('cartinfo', 'CartController@get_cart')->name('get_cart');
+Route::get('delete_cart/{id}', 'CartController@delete_cart')->name('delete_cart');
+Route::get('checkout', 'CartController@checkout')->name('checkout');
+Route::post('storecheckout', 'CartController@store_checkout')->name('store_checkout');
+});

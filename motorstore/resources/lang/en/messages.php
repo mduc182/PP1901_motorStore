@@ -74,7 +74,7 @@ return [
     'total' => 'Total : ',
     'notfound' => 'No Items In Card !!',
     'buy' => 'Buy Now',
-    'ordersuccess' => 'Order Success. We will response as soon as possible'
+    'ordersuccess' => 'Order Success. We will response as soon as possible',
 
 
 

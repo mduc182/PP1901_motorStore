@@ -44,8 +44,8 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="top_header_left">
-                        <a href="{!! Route('change_lang', ['en']) !!}">English</a>
-                        <a href="{!! Route('change_lang', ['vi']) !!}">VietNam</a>
+                        <a href="{!! Route('change_lang', ['en']) !!}"><img src="img/icon/flag-1.png"></a>
+                        <a href="{!! Route('change_lang', ['vi']) !!}"><img src="img/icon/vietnam-flag.png"></a>
                     <div class="input-group">
                         <a class="btn btn-secondary" href="{!! Route('contact_page') !!}">{{ trans('messages.contactpage') }}</a>
                     </div>
@@ -65,10 +65,11 @@
                     @if (Route::has('login'))
                         <div class="top-right links">
                             @auth
-                                <li class="top_right">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-                                       {{ Auth::user()->name }} <span class="caret"></span>
-                                    </a>
+                                <div class="top_right">
+                                <i class="icon-user icons">
+                                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
+                                       {{ Auth::user()->name }}
+                                       </a>
                                     <br>
                                     <br>
                                     <ul class="top_right">
@@ -103,7 +104,8 @@
                                             </form>
                                         </li>
                                     </ul>
-                                </li>
+                                </i>
+                                </div>
                             @else
                                 <a href="{{ route('login') }}">{{ trans('messages.login')}}</a>
                                 <a href="{{ route('register') }}">{{ trans('messages.register')}}</a>

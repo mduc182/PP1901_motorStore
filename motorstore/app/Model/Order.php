@@ -10,8 +10,8 @@ class Order extends Model
         return $this->belongsTo('App\Model\User');
     }
 
-    public function products()
+    public function product()
     {
-        return $this->belongsToMany('App\Model\Product');
+        return $this->belongsTo('App\Model\Product');
     }
 }

@@ -17,7 +17,7 @@ class
 
     public function orders()
     {
-        return $this->belongsToMany('App\Model\Order');
+        return $this->hasMany('App\Model\Order');
     }
 
     public function images()

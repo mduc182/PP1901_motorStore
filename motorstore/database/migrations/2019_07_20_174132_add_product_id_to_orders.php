@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRemovesalecodeTables extends Migration
+class AddProductIdToOrders extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class CreateRemovesalecodeTables extends Migration
      */
     public function up()
     {
-        Schema::table('orders', function($table) {
-            $table->dropColumn('salecode');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->integer('product_id')->nullable();
 
         });
     }
@@ -26,8 +26,8 @@ class CreateRemovesalecodeTables extends Migration
      */
     public function down()
     {
-        Schema::table('orders', function($table) {
-            $table->String('salecode');
+        Schema::table('orders', function (Blueprint $table) {
+            $table->dropColumn('product_id');
         });
     }
 }

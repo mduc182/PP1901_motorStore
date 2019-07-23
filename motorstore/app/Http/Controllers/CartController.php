@@ -18,7 +18,6 @@ class CartController extends Controller
 
     public function add_cart(Request $request, $id)
     {
-        {
             $product = Product::find($id);
             $oldCart = Session::has('cart') ? Session::get('cart') : null;
             $cart = new Cart($oldCart);
@@ -26,7 +25,6 @@ class CartController extends Controller
             $request->session()->put('cart', $cart);
             return redirect('/');
 
-        }
     }
 
     public function get_cart()
@@ -77,6 +75,8 @@ class CartController extends Controller
         $orders->name = $request->get('name');
         $orders->address = $request->get('address');
         $orders->phone = $request->get('phone');
+        $orders->product_name = $request->get('product_name');
+        $orders->total = $request->get('total');
         $mess = '';
 
         if ($orders->save()) {

@@ -78,9 +78,10 @@ class AdminController extends Controller
     public function orderpage()
     {
         $orders = Order::with([
-            'user' => function ($query) {
-                $query->select('id', 'name', 'user_phone', 'user_address');
-            }])->paginate(5);
+            'product' => function ($query) {
+                $query->select('id');
+            }
+            ])->paginate(5);
 
         return view('admin.order', compact('orders'));
     }
@@ -332,6 +333,14 @@ class AdminController extends Controller
             $products = Product::Paginate(15);
 
             return view('admin.branch_info', compact('branches', 'products'));
+        }
+
+        public function delete_order(Request $request)
+        {
+            $orders = Order::findOrfail($request->get('id'));
+            $orders->delete();
+
+            return redirect('admin/order')->with(trans('mess_del'), trans('messages.delsuccess'));
         }
     }
 
