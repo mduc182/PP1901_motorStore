@@ -1,4 +1,4 @@
-@extends('admin.admin_display');
+@extends('layouts.admin')
 @section('content')
     <div class="container">
         <h3><p>{{ trans('messages.editpost') }}</p></h3>

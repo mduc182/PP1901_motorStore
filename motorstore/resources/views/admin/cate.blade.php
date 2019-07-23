@@ -1,11 +1,11 @@
-@extends('admin.admin_display');
+@extends('layouts.admin')
 @section('content')
     <a class="btn btn-success" href="{!! Route('add_cate') !!}">{{ trans('messages.addcate') }}</a>
     <div class="col-lg-9">
         @if(session('mess_del'))
             <p class="alert alert-success">{{ session('mess_del') }}</p>
         @endif
-        <table class="table table-striped">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
             <thead>
             <tr>

@@ -1,4 +1,4 @@
-@extends('admin.admin_display');
+@extends('layouts.admin')
 @section('content')
     <h2>{{ trans('messages.info1')}}{!! $branches->address !!}</h2>
     @foreach($branches->products as $product)

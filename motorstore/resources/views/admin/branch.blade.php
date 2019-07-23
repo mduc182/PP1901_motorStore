@@ -1,4 +1,4 @@
-@extends('admin.admin_display');
+@extends('layouts.admin')
 @section('content')
     @if(isset($mess))
         <p class="alert alert-success">{!! $mess !!}</p>
@@ -8,16 +8,19 @@
     @endif
     <a class="btn btn-success" href="{!! Route('add_branch') !!}">{{ trans('messages.addbranch')}}</a>
     <div class="col-lg-9">
-        <table class="table table-striped">
+        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
             <thead>
             <tr>
                 <th scope="col">{{ trans('messages.id')}}</th>
                 <th scope="col">{{ trans('messages.address')}}</th>
                 <th scope="col">{{ trans('messages.phone')}}</th>
+                <th scope="col">{{ trans('messages.action')}}</th>
 
             </tr>
             </thead>
+            <br>
+            <br>
             @foreach($branches as $branch)
                 <tbody>
                 <tr>
