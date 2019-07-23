@@ -19,7 +19,7 @@ class checkadmin
             if(auth()->user()->isAdmin == 1){
                 return $next($request);
             }
-            return redirect('home')->with('error', __('You have not admin access'));
+            return redirect('/');
         }
     }
 }

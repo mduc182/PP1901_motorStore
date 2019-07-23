@@ -40,12 +40,16 @@
 </head>
 <body>
 <div class="header_top_area">
-    <a href="{!! Route('change_lang', ['en']) !!}">English</a>
-    <a href="{!! Route('change_lang', ['vi']) !!}">VietNam</a>
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
-                <a class="btn btn-success" href="{!! Route('contact_page') !!}">{{ trans('messages.contactpage') }}</a>
+                <div class="top_header_left">
+                        <a href="{!! Route('change_lang', ['en']) !!}">English</a>
+                        <a href="{!! Route('change_lang', ['vi']) !!}">VietNam</a>
+                    <div class="input-group">
+                        <a class="btn btn-secondary" href="{!! Route('contact_page') !!}">{{ trans('messages.contactpage') }}</a>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-6">
                 <div class="top_header_middle">
@@ -53,19 +57,29 @@
                     <a href="#"><i class="fa fa-envelope"></i> Email: <span>minhduc8120@gmail.com</span></a>
                     <img src="img/13.png" alt="">
                 </div>
+
             </div>
+
             <div class="col-lg-3">
                 <div class="top_right_header">
                     @if (Route::has('login'))
-                        <li>
-                            <a href="{!! Route('cart_page') !!}">{{ trans('messages.bill') }}</a>
-                        </li>
                         <div class="top-right links">
                             @auth
-                                <li class="dropdown">
+                                <li class="top_right">
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
                                        {{ Auth::user()->name }} <span class="caret"></span>
                                     </a>
+                                    <br>
+                                    <br>
+                                    <ul class="top_right">
+
+                                        <li><a href="{!! Route('get_cart') !!}">
+                                                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                <span class="badge">{{ Session::has('cart') ? Session::get('cart')->totalQty : '' }}</span>
+                                            </a>
+                                        </li>
+
+                                    </ul>
 
                                     <ul class="dropdown-menu">
                                         @if (Auth::check() && Auth::user()->isAdmin == 1)

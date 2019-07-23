@@ -40,7 +40,6 @@
         </div>
     </header>
     <!--================End Menu Area =================-->
-
     <!--================Slider Area =================-->
     <section class="main_slider_area">
         <div class="container">
@@ -82,7 +81,7 @@
                                             <h5>{{ trans('messages.pdname')}}{!! $product->pdname !!}</h5>
                                             <h4>{{ trans('messages.price')}}{!! $product->price !!}</h4>
                                             <br>
-                                            <a class="btn btn-success">{{ trans('messages.order')}}</a>
+                                            <a href="{!! Route('add_cart', $product->id) !!}" class="btn btn-success">{{ trans('messages.order')}}</a>
                                         </div>
 
                                 </div>

@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('category.cate_display')
 
 @section('content')
 <div class="container">
