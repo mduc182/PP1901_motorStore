@@ -24,8 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $categories = Category::where('parent_id',0)->with('childs')->get();
-        $posts = Post::where('id', '>', 0)->with('products')->get();
+        $categories = Category::where('parent_id',1)->with('childs')->get();
+        $posts = Post::where('id', '>', 1)->with('products')->get();
 
 
 

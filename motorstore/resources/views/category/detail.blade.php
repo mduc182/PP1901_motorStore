@@ -1,5 +1,4 @@
-@extends('category.cate_display');
-@section('content')
+@include('category.header')
     <div class="row">
         <div class="col-md-2">
         </div>
@@ -27,7 +26,15 @@
             <br>
             <br>
             <br>
-            <a class="btn btn-success" href="{!! Route('add_cart', $products->id) !!}">{{ trans('messages.order')}}</a>
+            <ul class="c_product_btn">
+                <li><a class="add_cart_btn" href="{!! Route('add_cart', $products->id) !!}">{{ trans('messages.order')}}</a></li>
+            </ul>
         </div>
     </div>
-@endsection
+<br>
+<br>
+<br>
+
+@include('category.footer')
+@include('category.bottom_asset')
+

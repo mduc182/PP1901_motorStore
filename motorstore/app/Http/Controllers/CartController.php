@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\OrderFromRequest;
 use App\Model\Cart;
 use App\Model\Order;
 use Session;

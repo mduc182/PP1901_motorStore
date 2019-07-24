@@ -74,7 +74,14 @@ return [
     'notfound' => 'Không Có Sản Phẩm Trong Giỏ Hàng !!',
     'buy' => 'Đặt Mua Ngay ',
     'ordersuccess' => 'Đặt Mua Thành Công . Chúng Tôi Sẽ Liên Lạc Lại Sớm Nhất Có Thể.',
-    'total' => 'Tổng Tiền : '
+    'total' => 'Tổng Tiền : ',
+    'pdpa' => ' Trang Mặt Hàng :  ',
+    'homepage' => 'Trang Chủ',
+    'shipping' => 'Phí Ship : ',
+    'purchase' => 'Phương Thức Thanh Toán :',
+    'purchasedetail' => ' Đặt Hàng Trực Tuyến , Chúng Tôi Sẽ Liên Lạc Với Bạn Để Tư Vấn Về Sản Phẩm Và Xác Nhận Thanh Toán. Thời Gian Ship : Nội Thành : Trong Ngày . Ngoại Thành : Từ 2-3 Ngày',
+    'carttotal' => 'Xác Nhận Hóa Đơn : ',
+    'cartitems' => 'Giỏ Hàng Của Bạn : '
 
 
 ];

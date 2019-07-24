@@ -38,13 +38,13 @@
                     <div class="col-xs-12">
                         <div class="form-group">
                             <label for="address">{{ trans('messages.pdname')}}</label>
-                            <input type="text" class="form-control" name="product_name" value="{{ $product['item']['pdname'] }}">
+                            <input type="text" class="form-control" name="product_name" value="{{ $product['item']['pdname']}}" readonly>
                         </div>
                     </div>
                     <div class="col-xs-12">
                         <div class="form-group">
                             <label for="address">{{ trans('messages.total')}}</label>
-                            <input type="text" class="form-control" name="total" value="{{ $total }}">
+                            <input type="text" class="form-control" name="total" value="{{ $total }}" readonly>
                         </div>
                     </div>
                     <hr>

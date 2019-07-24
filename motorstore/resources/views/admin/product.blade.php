@@ -20,6 +20,7 @@
                 <th scope="col">{{ trans('messages.address')}}</th>
                 <th scope="col">{{ trans('messages.postname')}}</th>
                 <th scope="col">{{ trans('messages.action')}}</th>
+                <th scope="col">{{ trans('messages.info')}}</th>
 
             </tr>
             </thead>
@@ -42,6 +43,7 @@
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             <input type="submit" value="{{ trans('messages.delete') }}" class="btn btn-danger">
                         </form></td>
+                    <td><a class="btn btn-primary" href="{!! Route('product_page', $product['id']) !!}">{{ trans('messages.info')}}</a></td>
 
 
                 </tr>

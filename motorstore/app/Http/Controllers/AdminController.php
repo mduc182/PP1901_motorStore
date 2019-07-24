@@ -145,7 +145,7 @@ class AdminController extends Controller
         if ($categories->save()) {
             $mess = trans('messages.addsuccess');
         }
-        $categories = Category::all();
+        $categories = Category::paginate(5);
 
         return view('admin/cate', compact('categories'))->with(trans('mess'), $mess);
     }
@@ -160,6 +160,7 @@ class AdminController extends Controller
     public function update_cate(CategoryFromRequest $request, $id)
     {
         $categories = Category::findOrfail($id);
+        $categories->id = $request->get('id');
         $categories->catename = $request->get('catename');
         $categories->parent_id = $request->get('parent_id');
 
