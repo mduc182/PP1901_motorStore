@@ -75,7 +75,13 @@ return [
     'notfound' => 'No Items In Card !!',
     'buy' => 'Buy Now',
     'ordersuccess' => 'Order Success. We will response as soon as possible',
-
+    'pdpa' => 'ProDuct Page :  ',
+    'homepage' => 'Home Page',
+    'shipping' => 'Shipping : ',
+    'purchase' => 'Purchase : ',
+    'purchasedetail' => 'Shopping online . We wil response to you in order to confirm your purchase.',
+    'carttotal' => ' Cart Totals : ',
+    'cartitems' => ' Your Card : '
 
 
 
