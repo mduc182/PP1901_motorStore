@@ -12,15 +12,26 @@ use App\Model\Order;
 use App\Model\Post;
 use App\Model\Product;
 use App\Model\User;
+use App\Repository\Branch\BranchRepository;
+use App\Repository\Branch\BranchRepositoryInterface;
+use App\Repository\CategoryRepository;
+use App\Repository\CategoryRepositoryInterface;
+use App\Repository\Order\OrderRepository;
+use App\Repository\Post\PostRepositoryInterface;
+use App\Repository\Post\PostRepository;
+use App\Repository\Product\ProductRepository;
+use App\Repository\Product\ProductRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use function Sodium\compare;
 
 class AdminController extends Controller
 {
-    public $categories;
-    public $branches;
-    public $posts;
+    protected $categoryRepository;
+    protected $productRepository;
+    protected $branchRepository;
+    protected $postRepository;
+    protected $orderRepository;
 
     public function change_lang($language)
     {
@@ -29,11 +40,13 @@ class AdminController extends Controller
         return redirect()->back();
     }
 
-    public function __construct()
+    public function __construct(CategoryRepositoryInterface $categoryRepository, ProductRepositoryInterface $productRepository, BranchRepositoryInterface $branchRepository, PostRepositoryInterface $postRepository, OrderRepository $orderRepository)
     {
-        $this->categories = Category::all();
-        $this->branches = Branch::all();
-        $this->posts = Post::all();
+        $this->categoryRepository = $categoryRepository;
+        $this->productRepository = $productRepository;
+        $this->branchRepository = $branchRepository;
+        $this->postRepository = $postRepository;
+        $this->orderRepository = $orderRepository;
     }
 
     public function userpage()
@@ -46,23 +59,14 @@ class AdminController extends Controller
 
     public function catepage()
     {
-        $categories = Category::paginate(5);
+        $categories = $this->categoryRepository->getallcate();
 
         return view('admin.cate', compact('categories'));
     }
 
     public function productpage()
     {
-        $products = Product::with([
-            'category' => function ($query) {
-                $query->select('id', 'catename');
-            },
-            'post' => function ($query) {
-                $query->select('id', 'post_name');
-            },
-            'branch' => function ($query) {
-                $query->select('id', 'address');
-            }])->paginate(5);
+        $products = $this->productRepository->showallproduct();
 
 
         return view('admin.product', compact('products'));
@@ -70,18 +74,14 @@ class AdminController extends Controller
 
     public function branchpage()
     {
-        $branches = Branch::all();
+        $branches = $this->branchRepository->getallbranch();
 
         return view('admin.branch', compact('branches'));
     }
 
     public function orderpage()
     {
-        $orders = Order::with([
-            'product' => function ($query) {
-                $query->select('id');
-            }
-            ])->paginate(5);
+        $orders = $this->orderRepository->getallorder();
 
         return view('admin.order', compact('orders'));
     }
@@ -129,7 +129,7 @@ class AdminController extends Controller
 
     public function create_category()
     {
-        $categories = Category::all();
+        $categories = $this->categoryRepository->getallcate();
 
         return view('admin.category_add', compact('categories'));
     }
@@ -137,7 +137,7 @@ class AdminController extends Controller
     public function store_category(CategoryFromRequest $request)
     {
 
-        $categories = new Category();
+        $categories = $this->categoryRepository->createcategory();
         $categories->id = $request->get('id');
         $categories->catename = $request->get('catename');
         $categories->parent_id = $request->get('parent_id');
@@ -145,21 +145,21 @@ class AdminController extends Controller
         if ($categories->save()) {
             $mess = trans('messages.addsuccess');
         }
-        $categories = Category::paginate(5);
+        $categories = $this->categoryRepository->getallcate();
 
         return view('admin/cate', compact('categories'))->with(trans('mess'), $mess);
     }
 
     public function edit_cate($id)
     {
-        $categories = Category::findOrfail($id);
+        $categories = $this->categoryRepository->getcate($id);
 
         return view('admin.cate_edit', compact('categories'));
     }
 
     public function update_cate(CategoryFromRequest $request, $id)
     {
-        $categories = Category::findOrfail($id);
+        $categories = $this->categoryRepository->getcate($id);
         $categories->id = $request->get('id');
         $categories->catename = $request->get('catename');
         $categories->parent_id = $request->get('parent_id');
@@ -181,20 +181,20 @@ class AdminController extends Controller
 
     public function create_product()
     {
-        $products = Product::all();
-        $categories = $this->categories;
-        $branches = $this->branches;
-        $posts = $this->posts;
+        $products = $this->productRepository->getproduct();
+        $categories = $this->categoryRepository->getallcate();
+        $branches = $this->branchRepository->getallbranch();
+        $posts = $this->postRepository->getallpost();
 
         return view('admin.product_add', compact('products', 'categories', 'branches', 'posts'));
     }
 
     public function store_product(ProductFromRequest $request)
     {
-        $branches = $this->branches;
-        $categories = $this->categories;
-        $posts = $this->posts;
-        $products = new Product();
+        $branches = $this->branchRepository->getallbranch();
+        $categories = $this->categoryRepository->getallcate();
+        $posts = $this->postRepository->getallpost();
+        $products = $this->productRepository->createproduct();
         $products->pdname = $request->get('pdname');
         $products->plate = $request->get('plate');
         $products->color = $request->get('color');
@@ -228,19 +228,19 @@ class AdminController extends Controller
 
     public function edit_product($id)
     {
-        $products = Product::findOrfail($id);
-        $categories = $this->categories;
-        $branches = $this->branches;
-        $posts = $this->posts;
+        $products = $this->productRepository->findproduct($id);
+        $categories = $this->categoryRepository->getallcate();
+        $branches = $this->branchRepository->getallbranch();
+        $posts = $this->postRepository->getallpost();
         return view('admin.product_edit', compact('products', 'posts', 'categories', 'branches'));
     }
 
     public function update_product(ProductFromRequest $request, $id)
     {
-        $posts = $this->posts;
-        $branches = $this->branches;
-        $categories = $this->categories;
-        $products = Product::findOrFail($id);
+        $posts = $this->postRepository->getallpost();
+        $branches = $this->branchRepository->getallbranch();
+        $categories = $this->categoryRepository->getallcate();
+        $products = $this->productRepository->findproduct($id);
         $products->pdname = $request->get('pdname');
         $products->plate = $request->get('plate');
         $products->color = $request->get('color');
@@ -280,42 +280,42 @@ class AdminController extends Controller
 
         public function create_branch()
         {
-            $branches = Branch::all();
+            $branches = $this->branchRepository->getallbranch();
 
             return view('admin.branch_add', compact('branches'));
         }
 
         public function store_branch(BranchFromRequest $request)
         {
-            $branches = new Branch();
+            $branches = $this->branchRepository->createbranch();
             $branches->address = $request->get('address');
             $branches->phone = $request->get('phone');
 
             if ($branches->save()) {
                 $mess = trans('messages.addsuccess');
             }
-            $branches = Branch::all();
+            $branches = $this->branchRepository->getallbranch();
 
             return view('admin/branch', compact('branches'))->with(trans('mess'), $mess);
         }
 
         public function edit_branch($id)
         {
-            $branches = Branch::findOrFail($id);
+            $branches = $this->branchRepository->findbranch($id);
 
             return view('admin.branch_edit', compact('branches'));
         }
 
         public function update_branch(BranchFromRequest $request, $id)
         {
-            $branches = Branch::findOrFail($id);
+            $branches = $this->branchRepository->findbranch($id);
             $branches->address = $request->get('address');
             $branches->phone = $request->get('phone');
 
             if ($branches->save()) {
                 $mess = trans('messages.updatesuccess');
             }
-            $branches = Branch::all();
+            $branches = $this->branchRepository->getallbranch();
 
             return view('admin/branch', compact('branches'))->with(trans('mess'), $mess);
         }
@@ -330,7 +330,7 @@ class AdminController extends Controller
 
         public function branch_info($id)
         {
-            $branches = Branch::findOrfail($id);
+            $branches = $this->branchRepository->findbranch($id);
             $products = Product::Paginate(15);
 
             return view('admin.branch_info', compact('branches', 'products'));

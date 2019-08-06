@@ -6,27 +6,35 @@ use App\Http\Requests\PostFromRequest;
 use App\Model\Branch;
 use App\Model\Post;
 use App\Model\Product;
+use App\Repository\Post\PostRepositoryInterface;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
+    protected $postRepository;
+
+    public function __construct(PostRepositoryInterface $postRepository)
+    {
+        $this->postRepository = $postRepository;
+    }
+
     public function post_page()
     {
-        $posts = Post::paginate(3);
+        $posts = $this->postRepository->getallpost();
 
         return view('admin.post', compact('posts'));
     }
 
     public function add_post()
     {
-        $posts = Post::all();
+        $posts = $this->postRepository->getallpost();
 
         return view('admin.post_add', compact('posts'));
     }
 
     public function store_post(PostFromRequest $request)
     {
-        $posts = new Post();
+        $posts = $this->postRepository->createpost();
         $posts->id = $request->get('id');
         $posts->post_name = $request->get('post_name');
 
@@ -39,14 +47,14 @@ class PostController extends Controller
 
     public function edit_post($id)
     {
-        $posts = Post::findOrFail($id);
+        $posts = $this->postRepository->findpost($id);
 
         return view('admin.post_edit', compact('posts'));
     }
 
     public function update_post(PostFromRequest $request, $id)
     {
-        $posts = Post::findOrFail($id);
+        $posts = $this->postRepository->findpost($id);
         $posts->post_name = $request->get('post_name');
 
         if ($posts->save()) {
